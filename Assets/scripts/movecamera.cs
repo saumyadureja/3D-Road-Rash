@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movecamera : MonoBehaviour
+public class MoveCamera : MonoBehaviour
 
 {
     private Vector3 offset;

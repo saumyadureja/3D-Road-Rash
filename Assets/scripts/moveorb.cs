@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveorb : MonoBehaviour
+public class MoveOrb : MonoBehaviour
 {
     public KeyCode moveL;
     public KeyCode moveR;
