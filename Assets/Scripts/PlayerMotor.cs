@@ -6,6 +6,8 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private float speed = 5.0f;
+    private float verticalVelocity = 0.0f;
+    private float gravity = 12.0f;
     private Vector3 moveVector;
 
     // Start is called before the first frame update
@@ -23,9 +25,18 @@ public class PlayerMotor : MonoBehaviour
         moveVector.x = Input.GetAxisRaw("Horizontal") * speed;
 
         // Y (up - down)
+        if (controller.isGrounded)
+        {
+            verticalVelocity = -0.5f;
+        }
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+        moveVector.y = verticalVelocity;
 
         // Z (forward - backward)
-        moveVector.z =  Input.GetAxisRaw("Vertical") * speed;
+        moveVector.z = Input.GetAxisRaw("Vertical") * speed;
 
         controller.Move(moveVector * speed * Time.deltaTime);
     }
