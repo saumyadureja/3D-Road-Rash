@@ -7,6 +7,7 @@ public class RohitMovePlayer : MonoBehaviour
 {
     private CharacterController controller;
     private float speed = 5.0f;
+    private float speedMultiplier = 5.0f;
     private Vector3 moveVector;
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
@@ -31,6 +32,7 @@ public class RohitMovePlayer : MonoBehaviour
 
         if (controller.isGrounded)
         {
+           
             // Player is on the ground
             verticalVelocity = -0.5f;
         }
@@ -80,6 +82,6 @@ public class RohitMovePlayer : MonoBehaviour
 
     public void IncreaseSpeedByVal(int difficultLevel)
     {
-        speed = difficultLevel * speed; 
+        speed = difficultLevel * speedMultiplier; 
     }
 }

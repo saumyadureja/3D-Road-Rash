@@ -11,7 +11,7 @@ public class RohitScoresCalculations : MonoBehaviour
 
     private int difficultLevel = 0;
     private int maxDifficultLevel = 4;
-    private int scoreToNextLevel = 10;
+    private int scoreToNextLevel = 5;
 
     private Boolean isDead = false;
     // Start is called before the first frame update
