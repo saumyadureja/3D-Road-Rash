@@ -44,4 +44,9 @@ public class RohitMovePlayer : MonoBehaviour
 
         controller.Move(moveVector * Time.deltaTime);
     }
+
+    public void IncreaseSpeedByVal(int difficultLevel)
+    {
+        speed = difficultLevel * speed; 
+    }
 }

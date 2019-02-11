@@ -6,7 +6,7 @@ public class RohitObstacleManager : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs;
     private Transform playerTransform;
-    private readonly int noOfObstacles = 10;
+    private readonly int noOfObstacles = 100;
 
     // Start is called before the first frame update
     void Start()
