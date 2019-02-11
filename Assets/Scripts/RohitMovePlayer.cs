@@ -66,7 +66,7 @@ public class RohitMovePlayer : MonoBehaviour
         if ((hit.gameObject.name != "Plane") && (hit.point.z > transform.position.z + 0.2f))
         {
             // death happened
-            Debug.Log("hit.gameObject.name");
+            Debug.Log(hit.gameObject.name);
             Death();
         }
             
