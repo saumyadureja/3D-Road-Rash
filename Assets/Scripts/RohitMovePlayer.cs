@@ -84,4 +84,5 @@ public class RohitMovePlayer : MonoBehaviour
     {
         speed = difficultLevel * speedMultiplier; 
     }
+
 }
