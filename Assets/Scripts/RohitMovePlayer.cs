@@ -11,7 +11,7 @@ public class RohitMovePlayer : MonoBehaviour
     private Vector3 moveVector;
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
-    private Boolean isDead = false;
+    public Boolean isDead = false;
 
     // Start is called before the first frame update
     void Start()

@@ -8,7 +8,7 @@ public class RohitHealthCalculation : MonoBehaviour
 {
     private float health;
     private Boolean onHit = false;
-    private Text healthText;
+    public Text healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +21,10 @@ public class RohitHealthCalculation : MonoBehaviour
     {
         if (onHit)
         {
-            health -= 10;
+            health -= 0.1f;
             if (health < 0)
             {
+                GetComponent<RohitMovePlayer>().isDead = true;
                 GetComponent<RohitScoresCalculations>().OnDeathScoreStops();
             }
             onHit = false;
@@ -34,7 +35,6 @@ public class RohitHealthCalculation : MonoBehaviour
 
     public void OnHealthReduce()
     {
-        Debug.Log("In OnHitTriggered"); 
         onHit = true;
     }
 }
