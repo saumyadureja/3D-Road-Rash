@@ -21,7 +21,7 @@ public class RohitHealthCalculation : MonoBehaviour
     {
         if (onHit)
         {
-            health -= 0.1f;
+            health -= 5.0f;
             if (health < 0)
             {
                 GetComponent<RohitMovePlayer>().isDead = true;
