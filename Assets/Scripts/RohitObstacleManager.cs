@@ -13,7 +13,7 @@ public class RohitObstacleManager : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        obstacleCreatedTillZ = playerTransform.position.z + 10.0f;
+        obstacleCreatedTillZ = playerTransform.position.z + 25.0f;
         //for (int i = 0; i < noOfObstacles; i++)
         //{
            // spawnObstacles(i);
