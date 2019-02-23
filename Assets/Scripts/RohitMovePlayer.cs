@@ -75,10 +75,11 @@ public class RohitMovePlayer : MonoBehaviour
                 // health computation
                 Debug.Log("in health reduction if");
                 GetComponent<RohitHealthCalculation>().OnHealthReduce();
-
+                Destroy(hit.gameObject);
             }
             else
             {
+                Destroy(gameObject);
                 Death();
             }
 

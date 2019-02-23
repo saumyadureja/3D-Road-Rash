@@ -10,7 +10,7 @@ public class RohitScoresCalculations : MonoBehaviour
     public Text scoreText;
 
     private int difficultLevel = 0;
-    private int maxDifficultLevel = 4;
+    private readonly int maxDifficultLevel = 4;
     private int scoreToNextLevel = 5;
 
     private Boolean isDead = false;
@@ -50,5 +50,6 @@ public class RohitScoresCalculations : MonoBehaviour
     public void OnDeathScoreStops()
     {
         isDead = true;
+        scoreText.text = "Tu Mar Gaya";
     }
 }
