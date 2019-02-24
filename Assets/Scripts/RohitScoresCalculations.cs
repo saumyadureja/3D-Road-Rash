@@ -29,7 +29,7 @@ public class RohitScoresCalculations : MonoBehaviour
         }
         if (score >= scoreToNextLevel)
         {
-            LevelUp();
+            //LevelUp();
         }
 
         score += Time.deltaTime;
@@ -43,7 +43,7 @@ public class RohitScoresCalculations : MonoBehaviour
             return;
         }
         difficultLevel++;
-        GetComponent<RohitMovePlayer>().IncreaseSpeedByVal(difficultLevel);
+        // GetComponent<RohitMovePlayer>().IncreaseSpeedByVal(difficultLevel);
         scoreToNextLevel += 5;
     }
 

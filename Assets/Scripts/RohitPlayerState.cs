@@ -8,8 +8,13 @@ public class RohitPlayerState : MonoBehaviour
     public Boolean isCycle;
     public Boolean isSkate;
 
+
+    private readonly int levelLimit = 4;
     private int cycleLevel;
     private int skateLevel;
+
+    private float[] cycleSpeeds = { 5.0f, 10.0f, 15.0f, 20.0f };
+    private float[] skateSpeeds = { 25.0f, 9.0f, 17.0f, 30.0f };
     // Start is called before the first frame update
     void Start()
     {
@@ -39,25 +44,31 @@ public class RohitPlayerState : MonoBehaviour
 
     private void SkatePowerUpCalculation()
     {
-        skateLevel++;
-        cycleLevel = 0;
-        GetComponent<RohitMovePlayer>().IncreaseSpeedByVal(skateLevel);
+        if (skateLevel < levelLimit)
+        {
+            GetComponent<RohitMovePlayer>().UpdateSpeedByPowerup(skateSpeeds[skateLevel]);
+            skateLevel++;
+            cycleLevel = 0;
+        }
+
     }
 
     private void CyclePowerUpCalculation()
     {
-        cycleLevel++;
-        skateLevel = 0;
-        GetComponent<RohitMovePlayer>().IncreaseSpeedByVal(cycleLevel);
-
+        if (cycleLevel < levelLimit)
+        {
+            GetComponent<RohitMovePlayer>().UpdateSpeedByPowerup(cycleSpeeds[cycleLevel]);
+            cycleLevel++;
+            skateLevel = 0;
+        }
     }
 
-    public void CyclePowerupAdded()
+    public void CyclePowerUp()
     {
         isCycle = true;
     }
 
-    public void SkatePowerup()
+    public void SkatePowerUp()
     {
         isSkate = true;
     }

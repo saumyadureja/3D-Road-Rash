@@ -13,33 +13,32 @@ public class RohitMovePlayer : MonoBehaviour
     private float gravity = 12.0f;
     public Boolean isDead = false;
     private float animationDuration = 3;
+
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController> ();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            //Debug.Log("is Dead");
+            return;
+        }
         if (Time.time < animationDuration)
         {
 
             controller.Move(Vector3.forward * speed * Time.deltaTime);
             return;
         }
-
-        if (isDead)
-        {
-            //Debug.Log("is Dead");
-            return;
-        }
-
         moveVector = Vector3.zero;
 
         if (controller.isGrounded)
         {
-           
+
             // Player is on the ground
             verticalVelocity = -0.5f;
         }
@@ -61,7 +60,7 @@ public class RohitMovePlayer : MonoBehaviour
 
         controller.Move(moveVector * Time.deltaTime);
 
-        if(transform.position.y < -10)
+        if (transform.position.y < -10)
         {
             Death();
         }
@@ -77,21 +76,28 @@ public class RohitMovePlayer : MonoBehaviour
             // death happened
             Debug.Log(hit.gameObject.name);
 
-            if(hit.gameObject.name == "Obstacle_Sphere(Clone)")
+            if (hit.gameObject.name == "Obstacle_Sphere(Clone)")
             {
-                // health computation
+                GetComponent<RohitPlayerState>().CyclePowerUp();
                 Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
+                // health computation
                 GetComponent<RohitHealthCalculation>().OnHealthReduce();
             }
+            else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
+            {
+                // Cube hit
+                GetComponent<RohitPlayerState>().SkatePowerUp();
+                Destroy(hit.gameObject);
+            }
             else
-            {             
+            {
                 Death();
             }
 
-            
+
         }
-            
+
     }
 
     private void Death()
@@ -102,7 +108,12 @@ public class RohitMovePlayer : MonoBehaviour
 
     public void IncreaseSpeedByVal(int difficultLevel)
     {
-        speed = difficultLevel * speedMultiplier; 
+        speed = difficultLevel * speedMultiplier;
+    }
+
+    public void UpdateSpeedByPowerup(float levelSpeed)
+    {
+        speed = levelSpeed;
     }
 
 }
