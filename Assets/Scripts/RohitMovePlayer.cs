@@ -30,7 +30,6 @@ public class RohitMovePlayer : MonoBehaviour
         }
         if (Time.time < animationDuration)
         {
-
             controller.Move(Vector3.forward * speed * Time.deltaTime);
             return;
         }
@@ -71,7 +70,8 @@ public class RohitMovePlayer : MonoBehaviour
     // Called every time our player collides with any object
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if ((hit.gameObject.name != "Tile(Clone)") && (hit.point.z > transform.position.z + 0.2f))
+        if ((hit.gameObject.name != "Tile(Clone)") && ((hit.point.z > transform.position.z + 0.2f) ||
+                (hit.point.x > transform.position.x + 0.2f) || (hit.point.x < transform.position.x - 0.2f)))
         {
             // death happened
             Debug.Log(hit.gameObject.name);
