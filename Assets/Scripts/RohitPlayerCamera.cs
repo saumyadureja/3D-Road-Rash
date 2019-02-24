@@ -12,7 +12,7 @@ public class RohitPlayerCamera : MonoBehaviour
     private Vector3 startOffset;
     private Vector3 moveVector;
     private float transition = 0.0f;
-    private float animationDuration = 5.0f;
+    private float animationDuration = 2.0f;
     private Vector3 animationOffset =new Vector3(0,5,5);
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class RohitPlayerCamera : MonoBehaviour
         //X
         moveVector.x=0;
         //Y
-        moveVector.y=Mathf.Clamp(moveVector.y,6,10);
+        moveVector.y=Mathf.Clamp(moveVector.y,3,5);
         //camera between 3 and 5
         if (transition > 1.0f)
         {
