@@ -41,13 +41,15 @@ public class RohitPlayerState : MonoBehaviour
     {
         skateLevel++;
         cycleLevel = 0;
-        
+        GetComponent<RohitMovePlayer>().IncreaseSpeedByVal(skateLevel);
     }
 
     private void CyclePowerUpCalculation()
     {
         cycleLevel++;
         skateLevel = 0;
+        GetComponent<RohitMovePlayer>().IncreaseSpeedByVal(cycleLevel);
+
     }
 
     public void CyclePowerupAdded()
