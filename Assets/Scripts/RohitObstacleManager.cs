@@ -14,10 +14,6 @@ public class RohitObstacleManager : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         obstacleCreatedTillZ = playerTransform.position.z + 25.0f;
-        //for (int i = 0; i < noOfObstacles; i++)
-        //{
-           // spawnObstacles(i);
-        //}
     }
 
     // Update is called once per frame
@@ -33,7 +29,7 @@ public class RohitObstacleManager : MonoBehaviour
     {
         for (float  i = start; i < start + 50.0f; i += 10 )
         {
-            Vector3 position = new Vector3(Random.Range(-4.0f, 4.0f), 1, i);
+            Vector3 position = new Vector3(Random.Range(-6.0f, 6.0f), 2, i);
             GameObject go;
             go = Instantiate(obstaclePrefabs[Random.Range(0, 3)]);
             go.transform.SetParent(GameObject.FindGameObjectWithTag("ObstacleManagerTag").transform);
@@ -41,12 +37,4 @@ public class RohitObstacleManager : MonoBehaviour
         }
         
     }
-    //private void spawnObstacles(int index  = -1)
-    //{
-    //    Vector3 position = new Vector3(Random.Range(-4.0f, 4.0f), 1, Random.Range((10.0f * index), (10.0f * (index+1))));
-    //    GameObject go;
-    //    go = Instantiate(obstaclePrefabs[Random.Range(0, 3)]);
-    //    go.transform.SetParent(GameObject.FindGameObjectWithTag("ObstacleManagerTag").transform);
-    //    go.transform.position = position; 
-    //}
 }

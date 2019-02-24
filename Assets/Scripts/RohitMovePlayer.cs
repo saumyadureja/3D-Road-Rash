@@ -70,12 +70,17 @@ public class RohitMovePlayer : MonoBehaviour
             // death happened
             Debug.Log(hit.gameObject.name);
 
-            if(hit.gameObject.name == "Obstacle_Sphere(Clone)")
+            if (hit.gameObject.name == "Obstacle_Sphere(Clone)")
             {
+                // GetComponent<RohitPlayerState> 
                 // health computation
                 Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
                 GetComponent<RohitHealthCalculation>().OnHealthReduce();
+            }
+            else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
+            {
+                // Cube hit
             }
             else
             {             
