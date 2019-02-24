@@ -12,7 +12,7 @@ public class RohitPlayerCamera : MonoBehaviour
     private Vector3 startOffset;
     private Vector3 moveVector;
     private float transition = 0.0f;
-    private float animationDuration = 2.0f;
+    private float animationDuration = 3.0f;
     private Vector3 animationOffset =new Vector3(0,5,5);
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class RohitPlayerCamera : MonoBehaviour
 
         lookAt = GameObject.FindGameObjectWithTag("Player").transform;
         startOffset=transform.position-lookAt.position;
-        print(startOffset);
+        // print(startOffset);
     }
 
     // Update is called once per frame
