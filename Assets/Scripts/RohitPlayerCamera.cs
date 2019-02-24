@@ -22,6 +22,7 @@ public class RohitPlayerCamera : MonoBehaviour
 
         lookAt = GameObject.FindGameObjectWithTag("Player").transform;
         startOffset=transform.position-lookAt.position;
+        print(startOffset);
     }
 
     // Update is called once per frame
