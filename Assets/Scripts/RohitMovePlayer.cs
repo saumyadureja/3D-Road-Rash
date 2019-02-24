@@ -12,7 +12,7 @@ public class RohitMovePlayer : MonoBehaviour
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
     public Boolean isDead = false;
-
+    private float animationDuration = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,13 @@ public class RohitMovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time < animationDuration)
+        {
+
+            controller.Move(Vector3.forward * speed * Time.deltaTime);
+            return;
+        }
+
         if (isDead)
         {
             //Debug.Log("is Dead");
@@ -70,17 +77,12 @@ public class RohitMovePlayer : MonoBehaviour
             // death happened
             Debug.Log(hit.gameObject.name);
 
-            if (hit.gameObject.name == "Obstacle_Sphere(Clone)")
+            if(hit.gameObject.name == "Obstacle_Sphere(Clone)")
             {
-                // GetComponent<RohitPlayerState> 
                 // health computation
                 Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
                 GetComponent<RohitHealthCalculation>().OnHealthReduce();
-            }
-            else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
-            {
-                // Cube hit
             }
             else
             {             
