@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6817568906759197901}
   m_Layer: 0
   m_Name: Obstacle_Sphere
-  m_TagString: Untagged
+  m_TagString: sphere_prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

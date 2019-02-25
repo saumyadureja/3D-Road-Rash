@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ObstacleManagerTag
+  - sphere_prefab
   layers:
   - Default
   - TransparentFX

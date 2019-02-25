@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class RohitMovePlayer : MonoBehaviour
 {
+    public GameObject cube;
+    public GameObject sphere;
+    public GameObject capsule;
     private CharacterController controller;
     private float speed = 5.0f;
     private float speedMultiplier = 5.0f;
@@ -13,16 +16,34 @@ public class RohitMovePlayer : MonoBehaviour
     private float gravity = 12.0f;
     public Boolean isDead = false;
     private float animationDuration = 3;
+    private Boolean isSphere = false;
+    private Boolean isCube = false;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        capsule.SetActive(true);
+        sphere.SetActive(false);
+        cube.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isSphere)
+        {
+            sphere.SetActive(true);
+            cube.SetActive(false);
+            capsule.SetActive(false);
+        }
+        if (isCube)
+        {
+            sphere.SetActive(false);
+            cube.SetActive(true);
+            capsule.SetActive(false);
+        }
         if (isDead)
         {
             //Debug.Log("is Dead");
@@ -78,17 +99,23 @@ public class RohitMovePlayer : MonoBehaviour
 
             if (hit.gameObject.name == "Obstacle_Sphere(Clone)")
             {
+
                 GetComponent<RohitPlayerState>().CyclePowerUp();
                 Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
                 // health computation
                 GetComponent<RohitHealthCalculation>().OnHealthReduce();
+                isSphere = true;
+                isCube = false;
+
             }
             else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
             {
                 // Cube hit
                 GetComponent<RohitPlayerState>().SkatePowerUp();
                 Destroy(hit.gameObject);
+                isCube = true;
+                isSphere = false;
             }
             else
             {
