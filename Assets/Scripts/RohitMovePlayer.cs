@@ -117,6 +117,10 @@ public class RohitMovePlayer : MonoBehaviour
                 isCube = true;
                 isSphere = false;
             }
+            else if (hit.gameObject.name=="Ramp")
+            {
+                Debug.Log("ramp");
+            }
             else
             {
                 Death();
