@@ -156,12 +156,12 @@ public class RohitMovePlayer : MonoBehaviour
 
     private bool HitCheckAllDirections(ControllerColliderHit hit)
     {
-        return ((hit.point.z > transform.position.z + 0.2f) ||
-                (hit.point.z < transform.position.z - 0.2f) ||
-                (hit.point.x > transform.position.x + 0.2f) || 
-                (hit.point.x < transform.position.x - 0.2f) || 
-                (hit.point.y > transform.position.y + 0.2f) ||
-                (hit.point.y < transform.position.y - 0.2f));
+        return ((hit.point.z > transform.position.z + 0.01f) ||
+                (hit.point.z < transform.position.z - 0.01f) ||
+                (hit.point.x > transform.position.x + 0.01f) || 
+                (hit.point.x < transform.position.x - 0.01f) || 
+                (hit.point.y > transform.position.y + 0.01f) ||
+                (hit.point.y < transform.position.y - 0.01f));
     }
 
 }
