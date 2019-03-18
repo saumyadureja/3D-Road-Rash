@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 1339856535280173607, guid: 5c680be1cdd96024f93f6ad295f311ec,
         type: 3}
       propertyPath: m_Name
-      value: Ramp
+      value: TileRamp
       objectReference: {fileID: 0}
     - target: {fileID: 1339856535280173603, guid: 5c680be1cdd96024f93f6ad295f311ec,
         type: 3}
@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 6192216751500897928, guid: 5dd605f45356a364482133b8b76fe25e,
         type: 3}
       propertyPath: m_Name
-      value: Tile
+      value: TileFirst
       objectReference: {fileID: 0}
     - target: {fileID: 8409096617289951436, guid: 5dd605f45356a364482133b8b76fe25e,
         type: 3}
@@ -213,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 6192216751500897928, guid: 5dd605f45356a364482133b8b76fe25e,
         type: 3}
       propertyPath: m_Name
-      value: Tile (1)
+      value: TileLast
       objectReference: {fileID: 0}
     - target: {fileID: 8409096617289951436, guid: 5dd605f45356a364482133b8b76fe25e,
         type: 3}

@@ -52,7 +52,7 @@ public class RohitMovePlayer : MonoBehaviour
         }
         if (isDead)
         {
-            //Debug.Log("is Dead");
+            Debug.Log("MovePlayer: Is Dead");
             return;
         }
         if (Time.time < animationDuration)
@@ -64,7 +64,6 @@ public class RohitMovePlayer : MonoBehaviour
 
         if (controller.isGrounded)
         {
-
             // Player is on the ground
             verticalVelocity = -0.5f;
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
@@ -72,7 +71,6 @@ public class RohitMovePlayer : MonoBehaviour
             moveDirection = moveDirection * speed;
             if (Input.GetButton("Jump"))
             {
-
                 moveDirection.y = jumpSpeed;
                 controller.Move(moveDirection * Time.deltaTime);
             }
@@ -97,7 +95,6 @@ public class RohitMovePlayer : MonoBehaviour
 
         controller.Move(moveVector * Time.deltaTime);
 
-
         if (transform.position.y < -10)
         {
             Death();
@@ -109,15 +106,13 @@ public class RohitMovePlayer : MonoBehaviour
     // Called every time our player collides with any object
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && hitCheckAllDirection(hit))
+        if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && HitCheckAllDirections(hit))
         {
-            // death happened
-            Debug.Log("Death Happened");
-            Debug.Log(hit.gameObject.name);
+            Debug.Log("Collided with: " + hit.gameObject.name);
 
             if (hit.gameObject.name == "Obstacle_Sphere(Clone)")
             {
-
+                // Sphere hit
                 GetComponent<RohitPlayerState>().CyclePowerUp();
                 Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
@@ -135,16 +130,10 @@ public class RohitMovePlayer : MonoBehaviour
                 isCube = true;
                 isSphere = false;
             }
-            else if (hit.gameObject.name=="Ramp")
-            {
-                Debug.Log("ramp");
-            }
             else
             {
                 Death();
             }
-
-
         }
 
     }
@@ -165,7 +154,7 @@ public class RohitMovePlayer : MonoBehaviour
         speed = levelSpeed;
     }
 
-    private bool hitCheckAllDirection(ControllerColliderHit hit)
+    private bool HitCheckAllDirections(ControllerColliderHit hit)
     {
         return ((hit.point.z > transform.position.z + 0.2f) ||
                 (hit.point.z < transform.position.z - 0.2f) ||
