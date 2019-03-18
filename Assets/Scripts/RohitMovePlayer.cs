@@ -11,6 +11,7 @@ public class RohitMovePlayer : MonoBehaviour
     public GameObject capsule;
     private CharacterController controller;
     private float speed = 5.0f;
+    private float horizontalSpeed = 2.5f;
     private float speedMultiplier = 5.0f;
     private Vector3 moveVector;
     private float verticalVelocity = 0.0f;
@@ -83,7 +84,7 @@ public class RohitMovePlayer : MonoBehaviour
         }
 
         // X - Left Right movement
-        moveVector.x = Input.GetAxisRaw("Horizontal") * speed;
+        moveVector.x = Input.GetAxisRaw("Horizontal") * horizontalSpeed;
 
         // Y - Up Down movement
         moveVector.y = verticalVelocity;
@@ -108,8 +109,7 @@ public class RohitMovePlayer : MonoBehaviour
     // Called every time our player collides with any object
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && ((hit.point.z > transform.position.z + 0.2f) ||
-                (hit.point.x > transform.position.x + 0.2f) || (hit.point.x < transform.position.x - 0.2f)))
+        if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && hitCheckAllDirection(hit))
         {
             // death happened
             Debug.Log("Death Happened");
@@ -163,6 +163,16 @@ public class RohitMovePlayer : MonoBehaviour
     public void UpdateSpeedByPowerup(float levelSpeed)
     {
         speed = levelSpeed;
+    }
+
+    private bool hitCheckAllDirection(ControllerColliderHit hit)
+    {
+        return ((hit.point.z > transform.position.z + 0.2f) ||
+                (hit.point.z < transform.position.z - 0.2f) ||
+                (hit.point.x > transform.position.x + 0.2f) || 
+                (hit.point.x < transform.position.x - 0.2f) || 
+                (hit.point.y > transform.position.y + 0.2f) ||
+                (hit.point.y < transform.position.y - 0.2f));
     }
 
 }
