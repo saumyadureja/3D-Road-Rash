@@ -33,7 +33,7 @@ public class RohitPlayerCamera : MonoBehaviour
         moveVector= lookAt.position +startOffset;
         //X
         moveVector.x=0;
-        //Y
+        //Y - value should not be clapped as it should be accessible by camera
         // moveVector.y=Mathf.Clamp(moveVector.y,3,5);
         //camera between 3 and 5
         if (transition > 1.0f)
