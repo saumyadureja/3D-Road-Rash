@@ -7,7 +7,8 @@ public class RohitPathGenerator : MonoBehaviour
     public GameObject[] tilePrefabs;
     private Transform playerTransform;
     private float spawnZ= -5.0f ; // where on z axis do we want the object to be
-    private float tileLength= 10.0f;
+    private float tileLength = 10.0f;
+    private float rampLength = 16.0f;
     private int amnTilesOnScreen= 5;
     private List<GameObject> activeTiles;
     private float safeZone = 15.0f;
@@ -41,12 +42,25 @@ public class RohitPathGenerator : MonoBehaviour
     {
         GameObject go;
         if (prefabIndex ==-1)
-            go=Instantiate(tilePrefabs[RandomPrefabIndex()]) as GameObject;
+        {
+            int index = RandomPrefabIndex();
+            if(index == 1)
+            {
+                spawnZ += rampLength;
+            } else
+            {
+                spawnZ += tileLength;
+            }
+            go = Instantiate(tilePrefabs[index]) as GameObject;
+        }            
         else
-            go=Instantiate(tilePrefabs[prefabIndex]) as GameObject;
+        {
+            go = Instantiate(tilePrefabs[prefabIndex]) as GameObject;
+        }
+
+            
         go.transform.SetParent(transform);
         go.transform.position =Vector3.forward*spawnZ;
-        spawnZ +=tileLength;
         activeTiles.Add(go);
     }
     private void DeleteTile()
@@ -56,15 +70,26 @@ public class RohitPathGenerator : MonoBehaviour
     }
     private int RandomPrefabIndex()
     {
-        if(tilePrefabs.Length <=1)
-            return 0;
+        //if(tilePrefabs.Length <=1)
+        //    return 0;
 
-        int randomIndex = lastPrefabIndex;
-        while(randomIndex ==lastPrefabIndex)
+        //int randomIndex = lastPrefabIndex;
+        //while(randomIndex ==lastPrefabIndex)
+        //{
+        //    randomIndex = Random.Range (0, tilePrefabs.Length);
+        //}
+        //lastPrefabIndex = randomIndex;
+        //return randomIndex;
+
+        System.Random getRandom = new System.Random();
+        int rand = getRandom.Next(0, 100);
+        if (rand > 50)
         {
-            randomIndex = Random.Range (0, tilePrefabs.Length);
+            return 1;
         }
-        lastPrefabIndex = randomIndex;
-        return randomIndex;
+        else
+        {
+            return 0;
+        }
     }
 }
