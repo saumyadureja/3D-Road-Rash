@@ -13,7 +13,7 @@ public class RohitPathGenerator : MonoBehaviour
     private List<GameObject> activeTiles;
     private float safeZone = 15.0f;
 
-    private int lastPrefabIndex=0;
+    // private int lastPrefabIndex=0;
     // Start is called before the first frame update
     private void Start()
     {
@@ -91,7 +91,7 @@ public class RohitPathGenerator : MonoBehaviour
 
         System.Random getRandom = new System.Random();
         int rand = getRandom.Next(0, 100);
-        if (rand > 50)
+        if (rand > 90)
         {
             return 1;
         }
