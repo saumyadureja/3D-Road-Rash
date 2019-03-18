@@ -13,7 +13,7 @@ public class RohitHealthCalculation : MonoBehaviour
     void Start()
     {
         health = 100.0f;
-        healthText.text = "100";
+        healthText.text = "Health: 100";
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class RohitHealthCalculation : MonoBehaviour
             onHit = false;
         }
 
-        healthText.text = ((int)health).ToString();
+        healthText.text = "Health: " + ((int)health).ToString();
     }
 
     public void OnHealthReduce()

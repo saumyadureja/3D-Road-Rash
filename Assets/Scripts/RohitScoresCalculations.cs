@@ -17,7 +17,7 @@ public class RohitScoresCalculations : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "0";
+        scoreText.text = "Start";
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class RohitScoresCalculations : MonoBehaviour
         }
 
         score += Time.deltaTime;
-        scoreText.text = ((int)score).ToString();
+        scoreText.text = "Score: " + ((int)score).ToString();
     }
 
     private void LevelUp()
@@ -50,6 +50,6 @@ public class RohitScoresCalculations : MonoBehaviour
     public void OnDeathScoreStops()
     {
         isDead = true;
-        scoreText.text = "Tu Mar Gaya";
+        scoreText.text = "Oops, you are dead";
     }
 }
