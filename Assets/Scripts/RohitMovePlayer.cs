@@ -20,6 +20,8 @@ public class RohitMovePlayer : MonoBehaviour
     private Boolean isSphere = false;
     private Boolean isCube = false;
     private CultureInfo ci= new CultureInfo("en-US");
+    private Vector3 moveDirection = Vector3.zero;
+    public float jumpSpeed = 8.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class RohitMovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isSphere)
         {
             sphere.SetActive(true);
@@ -63,6 +66,15 @@ public class RohitMovePlayer : MonoBehaviour
 
             // Player is on the ground
             verticalVelocity = -0.5f;
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection = moveDirection * speed;
+            if (Input.GetButton("Jump"))
+            {
+
+                moveDirection.y = jumpSpeed;
+                controller.Move(moveDirection * Time.deltaTime);
+            }
         }
         else
         {
@@ -78,9 +90,12 @@ public class RohitMovePlayer : MonoBehaviour
 
         // Z - Forward Backword movement
         moveVector.z = speed;
+        moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 
+        controller.Move(moveDirection * Time.deltaTime * 1.9f);
 
         controller.Move(moveVector * Time.deltaTime);
+
 
         if (transform.position.y < -10)
         {
