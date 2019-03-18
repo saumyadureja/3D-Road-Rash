@@ -34,11 +34,11 @@ public class RohitPlayerCamera : MonoBehaviour
         //X
         moveVector.x=0;
         //Y
-        moveVector.y=Mathf.Clamp(moveVector.y,3,5);
+        // moveVector.y=Mathf.Clamp(moveVector.y,3,5);
         //camera between 3 and 5
         if (transition > 1.0f)
         {
-        transform.position = moveVector;
+            transform.position = moveVector;
         }
         else
         {

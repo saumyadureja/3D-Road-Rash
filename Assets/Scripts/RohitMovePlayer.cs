@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
 
 public class RohitMovePlayer : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class RohitMovePlayer : MonoBehaviour
     private float animationDuration = 3;
     private Boolean isSphere = false;
     private Boolean isCube = false;
+    private CultureInfo ci= new CultureInfo("en-US");
 
     // Start is called before the first frame update
     void Start()
@@ -91,10 +93,11 @@ public class RohitMovePlayer : MonoBehaviour
     // Called every time our player collides with any object
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if ((hit.gameObject.name != "Tile(Clone)") && ((hit.point.z > transform.position.z + 0.2f) ||
+        if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && ((hit.point.z > transform.position.z + 0.2f) ||
                 (hit.point.x > transform.position.x + 0.2f) || (hit.point.x < transform.position.x - 0.2f)))
         {
             // death happened
+            Debug.Log("Death Happened");
             Debug.Log(hit.gameObject.name);
 
             if (hit.gameObject.name == "Obstacle_Sphere(Clone)")
