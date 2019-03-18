@@ -8,6 +8,7 @@ public class RohitObstacleManager : MonoBehaviour
     private Transform playerTransform;
     // private readonly int noOfObstacles = 10;
     private float obstacleCreatedTillZ;
+    private float playerStartZ;
 
     // Start is called before the first frame update
     void Start()
@@ -37,4 +38,6 @@ public class RohitObstacleManager : MonoBehaviour
         }
         
     }
+
+    
 }

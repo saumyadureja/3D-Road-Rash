@@ -50,8 +50,10 @@ public class RohitPathGenerator : MonoBehaviour
         {
             int index = RandomPrefabIndex();
             if(index == 1)
-            {   
-
+            {
+                // Ramp is spawned so destroy all obstacles
+                Debug.Log("Ramp Created calling destroy obstacles");
+                DestroyObstacles(spawnZ,add);
                 add = rampLength;
             } else
             {
@@ -84,7 +86,7 @@ public class RohitPathGenerator : MonoBehaviour
     {
         System.Random getRandom = new System.Random();
         int rand = getRandom.Next(0, 100);
-        if (rand > 10)
+        if (rand > 50)
         {
             return 1;
         }
@@ -92,5 +94,24 @@ public class RohitPathGenerator : MonoBehaviour
         {
             return 0;
         }
+    }
+
+    private void DestroyObstacles(float spawnZ, float length)
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("ObstacleManagerTag");
+
+        Debug.Log("Child count:" + go.transform.childCount);
+
+        for(int i = 0; i < go.transform.childCount; i++)
+        {
+            GameObject child = go.transform.GetChild(i).gameObject;
+            if(spawnZ < child.transform.position.z && child.transform.position.z < spawnZ+length)
+            {
+                // Destroy  the child
+                Debug.Log("Destroying:" + go.name);
+                Destroy(child);
+            }
+        }
+
     }
 }
