@@ -29,7 +29,7 @@ public class RohitObstacleManager : MonoBehaviour
     {
         for (float  i = start; i < start + 50.0f; i += 10 )
         {
-            Vector3 position = new Vector3(Random.Range(-6.0f, 6.0f), 2, i);
+            Vector3 position = new Vector3(Random.Range(-6.0f, 6.0f), 1, i);
             GameObject go;
             go = Instantiate(obstaclePrefabs[Random.Range(0, 3)]);
             go.transform.SetParent(GameObject.FindGameObjectWithTag("ObstacleManagerTag").transform);

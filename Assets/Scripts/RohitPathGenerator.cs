@@ -8,7 +8,7 @@ public class RohitPathGenerator : MonoBehaviour
     private Transform playerTransform;
     private float spawnZ= -5.0f ; // where on z axis do we want the object to be
     private float tileLength = 10.0f;
-    private float rampLength = 20.0f;
+    private float rampLength = 37.0f;
     private int amnTilesOnScreen= 5;
     private List<GameObject> activeTiles;
     private float safeZone = 15.0f;
@@ -91,7 +91,7 @@ public class RohitPathGenerator : MonoBehaviour
 
         System.Random getRandom = new System.Random();
         int rand = getRandom.Next(0, 100);
-        if (rand > 50)
+        if (rand > 90)
         {
             return 1;
         }
