@@ -8,28 +8,33 @@ public class RohitObstacleManager : MonoBehaviour
     private Transform playerTransform;
     // private readonly int noOfObstacles = 10;
     private float obstacleCreatedTillZ;
+    private float safeZone;
     private float playerStartZ;
+    private float obstacleGenerateWindow = 100.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         // Initial offset for spawnZ as 45 from player start position
-        obstacleCreatedTillZ = playerTransform.position.z + 45.0f;
+        safeZone = playerTransform.position.z + 50.0f;
+        obstacleCreatedTillZ = safeZone ;
+        spawnObstaclesOnZ(obstacleCreatedTillZ);
+        obstacleCreatedTillZ += obstacleGenerateWindow;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerTransform.position.z + 50.0f > obstacleCreatedTillZ)
+        if (playerTransform.position.z > safeZone && playerTransform.position.z + obstacleGenerateWindow > obstacleCreatedTillZ)
         {
             spawnObstaclesOnZ(obstacleCreatedTillZ);
-            obstacleCreatedTillZ += 50;
+            obstacleCreatedTillZ += obstacleGenerateWindow;
         }
     }
     private void spawnObstaclesOnZ(float start) 
     {
-        for (float  i = start; i < start + 50.0f; i += 10 )
+        for (float  i = start; i < start + obstacleGenerateWindow; i += 10 )
         {
             Vector3 position = new Vector3(Random.Range(-6.0f, 6.0f), 1, i);
             GameObject go;
