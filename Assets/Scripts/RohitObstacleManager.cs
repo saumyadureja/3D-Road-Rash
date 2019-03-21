@@ -6,12 +6,12 @@ public class RohitObstacleManager : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs;
     private Transform playerTransform;
-    private readonly int maxNoOfObstacles = 30;
+    public readonly int maxNoOfObstacles = 30;
     private float obstacleCreatedTillZ;
     private float safeZone;
     private float playerStartZ;
     private float obstacleGenerateWindow = 100.0f;
-    private LinkedList<GameObject> activeObstacles;
+    public LinkedList<GameObject> activeObstacles;
 
     // Start is called before the first frame update
     void Start()

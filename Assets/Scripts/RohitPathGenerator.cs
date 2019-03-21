@@ -109,6 +109,14 @@ public class RohitPathGenerator : MonoBehaviour
             Debug.Log("Child Position: " + child.transform.position.z + "SpawnZ: "  + spawnZ + "Length: " + length);
             if (spawnZ < child.transform.position.z && child.transform.position.z < spawnZ+length)
             {
+                // Remove child from the linked list of active obstacles
+                LinkedList<GameObject> list = GetComponent<RohitObstacleManager>().activeObstacles;
+                int numOfMaxObstacles = GetComponent<RohitObstacleManager>().maxNoOfObstacles;
+
+                if(list.Count > numOfMaxObstacles)
+                {
+                    list.Remove(child);
+                }
                 // Destroy  the child
                 Debug.Log("Destroying:" + go.name);
                 Destroy(child);
