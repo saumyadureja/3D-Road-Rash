@@ -14,7 +14,8 @@ public class RohitObstacleManager : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        obstacleCreatedTillZ = playerTransform.position.z + 25.0f;
+        // Initial offset for spawnZ as 45 from player start position
+        obstacleCreatedTillZ = playerTransform.position.z + 45.0f;
     }
 
     // Update is called once per frame
