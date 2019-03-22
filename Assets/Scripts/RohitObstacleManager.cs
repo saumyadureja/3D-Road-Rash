@@ -11,12 +11,12 @@ public class RohitObstacleManager : MonoBehaviour
     private float safeZone;
     private float playerStartZ;
     private float obstacleGenerateWindow = 100.0f;
-    public LinkedList<GameObject> activeObstacles;
+    private LinkedList<GameObject> activeObstacles;
 
     // Start is called before the first frame update
     void Start()
     {
-        activeObstacles = new LinkedList<GameObject>();
+        activeObstacles = GetComponent<RohitGlobals>().activeObstacles;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         // Initial offset for spawnZ as 45 from player start position
         safeZone = playerTransform.position.z + 50.0f;

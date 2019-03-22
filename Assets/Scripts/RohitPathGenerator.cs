@@ -110,8 +110,8 @@ public class RohitPathGenerator : MonoBehaviour
             if (spawnZ < child.transform.position.z && child.transform.position.z < spawnZ+length)
             {
                 // Remove child from the linked list of active obstacles
-                LinkedList<GameObject> list = GetComponent<RohitObstacleManager>().activeObstacles;
-                int numOfMaxObstacles = GetComponent<RohitObstacleManager>().maxNoOfObstacles;
+                LinkedList<GameObject> list = GetComponent<RohitGlobals>().activeObstacles;
+                int numOfMaxObstacles = GetComponent<RohitGlobals>().maxNoOfObstacles;
 
                 if(list.Count > numOfMaxObstacles)
                 {
