@@ -11,12 +11,12 @@ public class RohitObstacleManager : MonoBehaviour
     private float safeZone;
     private float playerStartZ;
     private float obstacleGenerateWindow = 100.0f;
-    private LinkedList<GameObject> activeObstacles;
+    public LinkedList<GameObject> obsList;
 
     // Start is called before the first frame update
     void Start()
     {
-        activeObstacles = GetComponent<RohitGlobals>().activeObstacles;
+        obsList = new LinkedList<GameObject>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         // Initial offset for spawnZ as 45 from player start position
         safeZone = playerTransform.position.z + 50.0f;
@@ -44,13 +44,13 @@ public class RohitObstacleManager : MonoBehaviour
             go.transform.SetParent(GameObject.FindGameObjectWithTag("ObstacleManagerTag").transform);
             go.transform.position = position;
 
-            activeObstacles.AddLast(go);
+            obsList.AddLast(go);
 
-            if(activeObstacles.Count > maxNoOfObstacles)
+            if(obsList.Count > maxNoOfObstacles)
             {
-                GameObject goRemoved = activeObstacles.First.Value;
+                GameObject goRemoved = obsList.First.Value;
                 Destroy(goRemoved);
-                activeObstacles.RemoveFirst();
+                obsList.RemoveFirst();
             }
         }
         
