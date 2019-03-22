@@ -111,7 +111,7 @@ public class RohitPathGenerator : MonoBehaviour
             {
                 // Remove child from the linked list of active obstacles where
                 LinkedList<GameObject> list = GetComponent<RohitObstacleManager>().obsList;
-                int numOfMaxObstacles = GetComponent<RohitGlobals>().maxNoOfObstacles;
+                int numOfMaxObstacles = GetComponent<RohitObstacleManager>().maxNoOfObstacles;
 
                 if(list.Count > numOfMaxObstacles)
                 {
