@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RohitRadiation : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RohitRadiation : MonoBehaviour
     private Transform playerTransform;
     private readonly float offset = 20.0f;
     private readonly float radiationSpeed = 5.0f;
+    public Scrollbar scrollBar;
     // Start is called before the fist frame update
     void Start()
     {
@@ -19,6 +21,12 @@ public class RohitRadiation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        radiationLocation += Time.deltaTime * radiationSpeed; 
+        radiationLocation += Time.deltaTime * radiationSpeed;
+
+        // Radiation distance logger
+        float distance;
+        distance = playerTransform.position.z - radiationLocation;
+        //scrollBar.value = (distance / 1000.0f);
+        Debug.Log("Distance from radiation is: " + distance);
     }
 }

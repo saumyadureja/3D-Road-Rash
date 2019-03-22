@@ -37,10 +37,7 @@ public class RohitMovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Radiation distance logger
-        float distance;
-        distance = this.transform.position.z - GetComponent<RohitRadiation>().radiationLocation;
-        Debug.Log("Distance from radiation is: " + distance);
+        
 
         if (isSphere)
         {
