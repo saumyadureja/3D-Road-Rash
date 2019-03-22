@@ -9,7 +9,7 @@ public class RohitRadiation : MonoBehaviour
     private Transform playerTransform;
     private readonly float offset = 20.0f;
     private readonly float radiationSpeed = 5.0f;
-    public Scrollbar scrollBar;
+    public Image progressBar;
     // Start is called before the fist frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class RohitRadiation : MonoBehaviour
         // Radiation distance logger
         float distance;
         distance = playerTransform.position.z - radiationLocation;
-        //scrollBar.value = (distance / 1000.0f);
-        Debug.Log("Distance from radiation is: " + distance);
+        progressBar.fillAmount = (distance / 1000.0f);
+        Debug.Log("Distance from radiation is: " + distance + " Fill Amount: " + progressBar.fillAmount);
     }
 }
