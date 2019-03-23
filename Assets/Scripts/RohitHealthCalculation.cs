@@ -21,23 +21,18 @@ public class RohitHealthCalculation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (onHit)
+        if (health < 0)
         {
-            health -= 5.0f;
-            if (health < 0)
-            {
-                GetComponent<RohitMovePlayer>().isDead = true;
-                GetComponent<RohitScoresCalculations>().OnDeathScoreStops();
-            }
-            onHit = false;
+            GetComponent<RohitMovePlayer>().isDead = true;
+            GetComponent<RohitScoresCalculations>().OnDeathScoreStops();
         }
-
+        
         healthText.text = "Health: " + ((int)health).ToString();
         healthProgress.fillAmount = (health / 100);
     }
 
-    public void OnHealthReduce()
+    public void ReduceHealth(float reductionAmt)
     {
-        onHit = true;
+        this.health -= reductionAmt;
     }
 }

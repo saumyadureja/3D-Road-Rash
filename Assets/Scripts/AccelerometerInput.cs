@@ -6,6 +6,6 @@ public class AccelerometerInput : MonoBehaviour
 {
     void Update()
     {
-        transform.Translate(Input.acceleration.x, Input.acceleration.y, -Input.acceleration.z);
+        transform.Translate(Input.acceleration.x, 0, -Input.acceleration.z);
     }
 }

@@ -115,8 +115,6 @@ public class RohitMovePlayer : MonoBehaviour
                 GetComponent<RohitPlayerState>().CyclePowerUp();
                 Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
-                // health computation
-                GetComponent<RohitHealthCalculation>().OnHealthReduce();
                 isSphere = true;
                 isCube = false;
 
@@ -128,6 +126,13 @@ public class RohitMovePlayer : MonoBehaviour
                 Destroy(hit.gameObject);
                 isCube = true;
                 isSphere = false;
+            }
+            else if (hit.gameObject.name == "Obstacle_Cylinder(Clone)")
+            {
+                // reduce the  health
+                Destroy(hit.gameObject);
+                GetComponent<RohitHealthCalculation>().ReduceHealth(30.0f);
+
             }
             else
             {
