@@ -64,7 +64,7 @@ public class RohitObstacleManager : MonoBehaviour
 
         System.Random getRandom = new System.Random();
         int rand = getRandom.Next(0, 100);
-        if (rand > 80)
+        if (rand > 50)
         {
             return 3;
         }

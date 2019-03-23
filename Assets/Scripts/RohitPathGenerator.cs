@@ -105,8 +105,8 @@ public class RohitPathGenerator : MonoBehaviour
         for(int i = 0; i < go.transform.childCount; i++)
         {
             GameObject child = go.transform.GetChild(i).gameObject;
-            Debug.Log("Child: " + i + "Name: " + child.name);
-            Debug.Log("Child Position: " + child.transform.position.z + "SpawnZ: "  + spawnZ + "Length: " + length);
+            //Debug.Log("Child: " + i + "Name: " + child.name);
+            //Debug.Log("Child Position: " + child.transform.position.z + "SpawnZ: "  + spawnZ + "Length: " + length);
             if (spawnZ < child.transform.position.z && child.transform.position.z < spawnZ+length)
             {
                 // Remove child from the linked list of active obstacles where

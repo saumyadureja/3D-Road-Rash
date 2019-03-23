@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5542209876807081173}
   - component: {fileID: 5814638420230207888}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Obstacle_Health2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8869060182688901182}
   m_Layer: 0
-  m_Name: Health
+  m_Name: Obstacle_Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 9154941093173526117}
   - component: {fileID: 445643658570965817}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Obstacle_Health1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -134,7 +134,7 @@ public class RohitMovePlayer : MonoBehaviour
                 GetComponent<RohitHealthCalculation>().ReduceHealth(30.0f);
 
             }
-            else if (hit.gameObject.name == "Obstacle_Health(Clone)")
+            else if (hit.gameObject.name.StartsWith("Obstacle_Health", true, ci))
             {
                 // reduce the  health
                 Destroy(hit.gameObject);
