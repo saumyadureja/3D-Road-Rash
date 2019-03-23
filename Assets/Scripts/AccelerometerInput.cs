@@ -6,7 +6,10 @@ public class AccelerometerInput : MonoBehaviour
 {
     void Update()
     {
-
+        if (GetComponent<RohitMovePlayer>().isDead)
+        {
+            Destroy(this);
+        }
         transform.Translate(Input.acceleration.x, 0, 0);
     }
 }

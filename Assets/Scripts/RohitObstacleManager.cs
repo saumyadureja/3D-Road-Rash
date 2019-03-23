@@ -59,12 +59,11 @@ public class RohitObstacleManager : MonoBehaviour
     }
 
     private int GetRandomIndex()
-    {
-        
+    {       
 
         System.Random getRandom = new System.Random();
         int rand = getRandom.Next(0, 100);
-        if (rand > 50)
+        if (rand > 80)
         {
             return 3;
         }

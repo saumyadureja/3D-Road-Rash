@@ -13,10 +13,14 @@ public class RohitScoresCalculations : MonoBehaviour
     private readonly int maxDifficultLevel = 4;
     private int scoreToNextLevel = 5;
 
+    private float startPosition;
+    private float currentPosition;
+
     private Boolean isDead = false;
     // Start is called before the first frame update
     void Start()
     {
+        startPosition = GetComponent<RohitMovePlayer>().transform.position.z;
         scoreText.text = "Start";
     }
 
@@ -31,8 +35,8 @@ public class RohitScoresCalculations : MonoBehaviour
         {
             //LevelUp();
         }
-
-        score += Time.deltaTime;
+        currentPosition = GetComponent<RohitMovePlayer>().transform.position.z;
+        score = currentPosition - startPosition;
         scoreText.text = "Score: " + ((int)score).ToString();
     }
 

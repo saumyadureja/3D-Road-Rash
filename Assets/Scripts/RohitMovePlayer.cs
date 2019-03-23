@@ -11,7 +11,7 @@ public class RohitMovePlayer : MonoBehaviour
     public GameObject sphere;
     public GameObject capsule;
     private CharacterController controller;
-    private float speed = 5.0f;
+    private float speed = 10.0f;
     private float horizontalSpeed = 2.5f;
     private float speedMultiplier = 5.0f;
     private Vector3 moveVector;
@@ -55,6 +55,7 @@ public class RohitMovePlayer : MonoBehaviour
         if (isDead)
         {
             Debug.Log("MovePlayer: Is Dead");
+            //Destroy(this);
             return;
         }
         if (Time.time < animationDuration)
