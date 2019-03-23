@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Globalization;
+using UnityEngine.SceneManagement;
 
 public class RohitMovePlayer : MonoBehaviour
 {
@@ -67,14 +68,8 @@ public class RohitMovePlayer : MonoBehaviour
         {
             // Player is on the ground
             verticalVelocity = -0.5f;
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection = moveDirection * speed;
-            if (Input.GetButton("Jump"))
-            {
-                moveDirection.y = jumpSpeed;
-                controller.Move(moveDirection * Time.deltaTime);
-            }
+            
+            
         }
         else
         {
@@ -166,6 +161,21 @@ public class RohitMovePlayer : MonoBehaviour
                 (hit.point.x < transform.position.x - 0.01f) || 
                 (hit.point.y > transform.position.y + 0.01f) ||
                 (hit.point.y < transform.position.y - 0.01f));
+    }
+    public void onReset()
+    {
+        SceneManager.LoadScene(0);
+
+    }
+    public void onJump()
+    {
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection = moveDirection * speed;
+        
+            moveDirection.y = jumpSpeed;
+            controller.Move(moveDirection * Time.deltaTime*1.9f);
+        
     }
 
 }
