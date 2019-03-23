@@ -27,6 +27,6 @@ public class RohitRadiation : MonoBehaviour
         float distance;
         distance = playerTransform.position.z - radiationLocation;
         progressBar.fillAmount = (distance / 1000.0f);
-        Debug.Log("Distance from radiation is: " + distance + " Fill Amount: " + progressBar.fillAmount);
+        //Debug.Log("Distance from radiation is: " + distance + " Fill Amount: " + progressBar.fillAmount);
     }
 }

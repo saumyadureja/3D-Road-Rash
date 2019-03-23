@@ -40,7 +40,8 @@ public class RohitObstacleManager : MonoBehaviour
         {
             Vector3 position = new Vector3(Random.Range(-6.0f, 6.0f), 1, i);
             GameObject go;
-            go = Instantiate(obstaclePrefabs[Random.Range(0, 3)]);
+            int prefabIndex = GetRandomIndex();
+            go = Instantiate(obstaclePrefabs[prefabIndex]);
             go.transform.SetParent(GameObject.FindGameObjectWithTag("ObstacleManagerTag").transform);
             go.transform.position = position;
 
@@ -55,6 +56,24 @@ public class RohitObstacleManager : MonoBehaviour
             }
         }
         
+    }
+
+    private int GetRandomIndex()
+    {
+        
+
+        System.Random getRandom = new System.Random();
+        int rand = getRandom.Next(0, 100);
+        if (rand > 80)
+        {
+            return 3;
+        }
+        else
+        {
+            return Random.Range(0, 3);
+        }
+
+
     }
 
     

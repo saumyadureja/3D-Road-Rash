@@ -35,4 +35,16 @@ public class RohitHealthCalculation : MonoBehaviour
     {
         this.health -= reductionAmt;
     }
+
+
+    public void IncreaseHealth(float increaseAmt)
+    {
+        this.health += increaseAmt;
+
+        if(this.health > 100.0f)
+        {
+            this.health = 100.0f;
+        }
+
+    }
 }
