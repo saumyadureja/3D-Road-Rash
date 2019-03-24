@@ -34,6 +34,8 @@ public class RohitRadiation : MonoBehaviour
             // negative
             radiationNegativeProgress.fillAmount = (distance*(-1) / 200.0f);
             radiationPositiveProgress.fillAmount = 0.0f;
+
+            GetComponent<RohitHealthCalculation>().ReduceHealth(0.1f);
         }
         else
         {
@@ -42,6 +44,6 @@ public class RohitRadiation : MonoBehaviour
             radiationNegativeProgress.fillAmount = 0.0f;
         }
        
-        //Debug.Log("Distance from radiation is: " + distance + " Fill Amount: " + progressBar.fillAmount);
+        //Debug.Log("Distance from radiation is: " + distance + " Fill Amount: " + radiationPositiveProgress.fillAmount);
     }
 }
