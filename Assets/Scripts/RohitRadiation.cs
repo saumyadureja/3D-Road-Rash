@@ -23,6 +23,10 @@ public class RohitRadiation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<RohitMovePlayer>().isDead)
+        {
+            return;
+        }
         radiationLocation += Time.deltaTime * radiationSpeed;
 
         // Radiation distance logger

@@ -69,8 +69,16 @@ public class RohitMovePlayer : MonoBehaviour
         {
             // Player is on the ground
             verticalVelocity = -0.5f;
-            
-            
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection = moveDirection * speed;
+            if (Input.GetButton("Jump"))
+            {
+
+                moveDirection.y = jumpSpeed;
+                controller.Move(moveDirection * Time.deltaTime);
+            }
+
         }
         else
         {
