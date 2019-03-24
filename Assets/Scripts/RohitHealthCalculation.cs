@@ -25,12 +25,13 @@ public class RohitHealthCalculation : MonoBehaviour
             GetComponent<RohitScoresCalculations>().OnDeathScoreStops();
             
         }
-        
+       
         healthProgress.fillAmount = (health / 100);
     }
 
     public void ReduceHealth(float reductionAmt)
     {
+        
         this.health -= reductionAmt;
     }
 
