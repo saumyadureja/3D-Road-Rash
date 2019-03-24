@@ -36,10 +36,11 @@ public class RohitObstacleManager : MonoBehaviour
     }
     private void spawnObstaclesOnZ(float start) 
     {
-        for (float  i = start; i < start + obstacleGenerateWindow; i += 10 )
+        for (float  i = start; i < start + obstacleGenerateWindow; i += 15 )
         {
             Vector3 position = new Vector3(Random.Range(-6.0f, 6.0f), 1, i);
             GameObject go;
+            Debug.Log("Calling getPrefabIndex:" + i);
             int prefabIndex = GetRandomIndex();
             go = Instantiate(obstaclePrefabs[prefabIndex]);
             go.transform.SetParent(GameObject.FindGameObjectWithTag("ObstacleManagerTag").transform);
@@ -60,18 +61,19 @@ public class RohitObstacleManager : MonoBehaviour
 
     private int GetRandomIndex()
     {       
-
-        System.Random getRandom = new System.Random();
-        int rand = getRandom.Next(0, 100);
+        int rand = Random.Range(0, 100);
+        int prefabIndex;
         if (rand > 80)
         {
-            return 3;
+            prefabIndex = 3;
         }
         else
         {
-            return Random.Range(0, 3);
+            prefabIndex = Random.Range(0, 3);
         }
+        Debug.Log("Inside random prefab creation Probability: " + rand + "Returned value: "  + prefabIndex);
 
+        return prefabIndex;
 
     }
 

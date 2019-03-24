@@ -190,7 +190,7 @@ public class RohitMovePlayer : MonoBehaviour
     }
     public void onJump()
     {
-        if (isDead)
+        if (isDead || !controller.isGrounded)
         {
             return;
         }
