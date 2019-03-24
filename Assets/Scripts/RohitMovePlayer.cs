@@ -182,12 +182,16 @@ public class RohitMovePlayer : MonoBehaviour
     }
     public void onJump()
     {
+        if (isDead)
+        {
+            return;
+        }
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection = moveDirection * speed;
         
-            moveDirection.y = jumpSpeed;
-            controller.Move(moveDirection * Time.deltaTime*1.9f);
+        moveDirection.y = jumpSpeed;
+        controller.Move(moveDirection * Time.deltaTime*1.9f);
         
     }
 
