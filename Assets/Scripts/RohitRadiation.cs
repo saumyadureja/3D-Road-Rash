@@ -12,10 +12,8 @@ public class RohitRadiation : MonoBehaviour
     public Image radiationPositiveProgress;
     public Image radiationNegativeProgress;
     public Image healthDamage1;
-    public Image healthDamage2;
+    private Color healthOpacity;
 
-    private bool flag1 = true;
-    private bool flag2 = false;
     // Start is called before the fist frame update
     void Start()
     {
@@ -24,11 +22,8 @@ public class RohitRadiation : MonoBehaviour
         radiationPositiveProgress.fillAmount = 0.0f;
         radiationLocation = playerTransform.position.z - offset;
 
-        healthDamage1.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-        healthDamage2.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-
-        healthDamage1.enabled = false;
-        healthDamage2.enabled = false;
+        healthOpacity = healthDamage1.color;
+        healthOpacity.a = 0.0f;
 
     }
 
@@ -43,6 +38,7 @@ public class RohitRadiation : MonoBehaviour
 
         // Radiation distance logger
         float distance;
+        
         distance = playerTransform.position.z - radiationLocation;
 
         if(distance < 0)
@@ -51,34 +47,23 @@ public class RohitRadiation : MonoBehaviour
             radiationNegativeProgress.fillAmount = (distance*(-1) / 200.0f);
             radiationPositiveProgress.fillAmount = 0.0f;
 
-            GetComponent<RohitHealthCalculation>().ReduceHealth(0.1f);
-
-            if (flag1)
-            {
-                healthDamage1.enabled = true;
-                healthDamage2.enabled = false;
-                flag1 = false;
-                flag2 = true;
-            }
-            else
-            {
-                healthDamage1.enabled = false;
-                healthDamage2.enabled = true;
-                flag1 = true;
-                flag2 = false;
-            }
-            
+            GetComponent<RohitHealthCalculation>().ReduceHealth(0.01f);
         }
         else
         {
+            if (distance > 200.0f)
+            {
+                distance = 200.0f;
+            }
             // positive
             radiationPositiveProgress.fillAmount = (distance / 200.0f);
             radiationNegativeProgress.fillAmount = 0.0f;
-
-            healthDamage1.enabled = false;
-            healthDamage2.enabled = false;
+            
         }
-       
+
+        healthOpacity.a = 1 + Mathf.Log10(radiationNegativeProgress.fillAmount);
+        healthDamage1.color = healthOpacity;
+
         //Debug.Log("Distance from radiation is: " + distance + " Fill Amount: " + radiationPositiveProgress.fillAmount);
     }
 }
