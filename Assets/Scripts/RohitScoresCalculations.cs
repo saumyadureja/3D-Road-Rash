@@ -54,6 +54,6 @@ public class RohitScoresCalculations : MonoBehaviour
     public void OnDeathScoreStops()
     {
         isDead = true;
-        scoreText.text = "Oops, you are dead";
+        scoreText.text = "Game Over";
     }
 }

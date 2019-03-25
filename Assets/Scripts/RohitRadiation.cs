@@ -11,7 +11,7 @@ public class RohitRadiation : MonoBehaviour
     private readonly float radiationSpeed = 20.0f;
     public Image radiationPositiveProgress;
     public Image radiationNegativeProgress;
-    public Image healthDamage1;
+    public Image healthDamage;
     private Color healthOpacity;
 
     // Start is called before the fist frame update
@@ -22,14 +22,14 @@ public class RohitRadiation : MonoBehaviour
         radiationPositiveProgress.fillAmount = 0.0f;
         radiationLocation = playerTransform.position.z - offset;
 
-        healthOpacity = healthDamage1.color;
+        healthOpacity = healthDamage.color;
         healthOpacity.a = 0.0f;
-
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (GetComponent<RohitMovePlayer>().isDead)
         {
             return;
@@ -44,16 +44,20 @@ public class RohitRadiation : MonoBehaviour
         if(distance < 0)
         {
             // negative
+            if(distance < -200.0f)
+            {
+                radiationLocation = playerTransform.position.z + 200.0f;
+            }
             radiationNegativeProgress.fillAmount = (distance*(-1) / 200.0f);
             radiationPositiveProgress.fillAmount = 0.0f;
 
-            GetComponent<RohitHealthCalculation>().ReduceHealth(0.01f);
+            GetComponent<RohitHealthCalculation>().ReduceHealth(radiationNegativeProgress.fillAmount * 0.05f);
         }
         else
         {
             if (distance > 200.0f)
             {
-                distance = 200.0f;
+                radiationLocation = playerTransform.position.z - 200.0f;
             }
             // positive
             radiationPositiveProgress.fillAmount = (distance / 200.0f);
@@ -62,7 +66,9 @@ public class RohitRadiation : MonoBehaviour
         }
 
         healthOpacity.a = 1 + Mathf.Log10(radiationNegativeProgress.fillAmount);
-        healthDamage1.color = healthOpacity;
+        healthDamage.color = healthOpacity;
+        
+
 
         //Debug.Log("Distance from radiation is: " + distance + " Fill Amount: " + radiationPositiveProgress.fillAmount);
     }
