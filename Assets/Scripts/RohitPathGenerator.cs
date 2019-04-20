@@ -8,10 +8,11 @@ public class RohitPathGenerator : MonoBehaviour
     private Transform playerTransform;
     private float spawnZ= -5.0f ; // where on z axis do we want the object to be
     private float tileLength = 10.0f;
-    private float rampLength = 37.0f;
+    private float rampLength = 10.0f;
     private int amnTilesOnScreen= 10;
     private List<GameObject> activeTiles;
     private float safeZone = 15.0f;
+    private Vector3 spawnPosition;
 
     // private int lastPrefabIndex=0;
     // Start is called before the first frame update
@@ -51,22 +52,21 @@ public class RohitPathGenerator : MonoBehaviour
             int index = RandomPrefabIndex();
             if(index == 1)
             {
-                add = rampLength;
-                // Spawn ramp accordingly
-                int addFactor = Random.Range(0, 3);
-                index += addFactor;
-
+                add = 2*rampLength;            
+                spawnPosition = new Vector3(0, 4.0f, spawnZ);
                 // Ramp is spawned so destroy all obstacles
                 Debug.Log("Ramp Created calling destroy obstacles");
                 DestroyObstacles(spawnZ,add);                
             } else
             {
                 add = tileLength;
+                spawnPosition = new Vector3(0, 0, spawnZ);
             }
             go = Instantiate(tilePrefabs[index]) as GameObject;
             go.transform.SetParent(transform);
-            go.transform.position =Vector3.forward*spawnZ;
+            go.transform.position = spawnPosition;
             spawnZ+=add;
+
             activeTiles.Add(go);
         }            
         else
