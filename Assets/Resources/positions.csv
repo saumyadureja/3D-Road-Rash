@@ -1,5 +1,5 @@
-obstacle,position_x,position_y,position_z
-TileNewL1,0,1,0
-TileNewL1,0,1,16
-Tile_RampRightL1,0,1,32
-Tile_RampLeftL1,0,1,52
+TileNewL1
+Tile_RampRightL1
+TileNewL1
+Tile_RampLeftL1
+TileNewL1
