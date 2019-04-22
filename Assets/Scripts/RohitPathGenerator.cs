@@ -43,7 +43,7 @@ public class RohitPathGenerator : MonoBehaviour
                 DeleteTile();
             }
     }
-    private void SpawnTile(int prefabIndex =-1)
+    private void SpawnTile(int prefabIndex = -1)
     {
         GameObject go;
         float add=0.0f;
@@ -61,24 +61,35 @@ public class RohitPathGenerator : MonoBehaviour
             {
                 add = tileLength;
                 spawnPosition = new Vector3(0, 0, spawnZ);
+
+                RandomlyPlaceWallAt(spawnZ);
             }
             go = Instantiate(tilePrefabs[index]) as GameObject;
             go.transform.SetParent(transform);
             go.transform.position = spawnPosition;
             spawnZ+=add;
-
+            Debug.Log("Spawn Tile called:: Spawned " + tilePrefabs[index].name + " Position: "+ spawnPosition);
             activeTiles.Add(go);
         }            
         else
         {
+            if(prefabIndex > 0)
+            {
+                spawnPosition = new Vector3(0, 4.0f, spawnZ);
+            }
+            else
+            {
+                spawnPosition = new Vector3(0, 0, spawnZ);
+            }
             go = Instantiate(tilePrefabs[prefabIndex]) as GameObject;
             go.transform.SetParent(transform);
-            go.transform.position =Vector3.forward*spawnZ;
+            go.transform.position = spawnPosition;
             spawnZ+=tileLength;
             activeTiles.Add(go);
+            Debug.Log("Spawn Tile called:: Spawned " + tilePrefabs[prefabIndex].name + " Position: " + spawnPosition);
         }
 
-            
+        
       
     }
     private void DeleteTile()
@@ -127,5 +138,22 @@ public class RohitPathGenerator : MonoBehaviour
             }
         }
 
+    }
+
+    private void RandomlyPlaceWallAt(float zLocation)
+    {
+        System.Random getRandom = new System.Random();
+        int rand = getRandom.Next(0, 100);
+        if (rand > 80)
+        {
+            // Place the wall 
+
+            GameObject Wall = Instantiate(Resources.Load("wall"), new Vector3(0, 4.0f, zLocation + 5.0f), Quaternion.Euler(-90, 0, 0)) as GameObject;
+           
+        }
+        else
+        {
+            // Do nothing
+        }
     }
 }

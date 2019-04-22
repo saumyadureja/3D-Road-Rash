@@ -52,7 +52,7 @@ public class placeObstacles : MonoBehaviour
                 }
                 if (data_values[i] == "wall")
                 {
-                    GameObject Cylinder = Instantiate(Resources.Load("wall"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
+                    GameObject Wall = Instantiate(Resources.Load("wall"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
 
                 }
             }
