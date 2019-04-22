@@ -17,7 +17,7 @@ public class ReadPositions : MonoBehaviour
 
     void ReadCSVFile()
     {
-        StreamReader streamReader = new StreamReader("Assets/Resources/Files/positions.csv");
+        StreamReader streamReader = new StreamReader("Assets/Resources/Files/Level1_Path.csv");
         bool eof = false;
 
         while (!eof)
