@@ -33,10 +33,6 @@ public class ReadPositions : MonoBehaviour
             string[] data_values = data.Split(',');
             for (int i = 0; i < data_values.Length; i++)
             {
-                //Debug.Log("Values:" + i.ToString() + " " + data_values[i].ToString());
-                //Debug.Log(data_values[i].ToString());
-
-                //Debug.Log(" value: "+data_values[i]);//4
                 if (data_values[i] == "Tile_Main")
                 {
                     
@@ -44,12 +40,11 @@ public class ReadPositions : MonoBehaviour
                     add += tileLength;
 
                 }
-                //GameObject tileInstances1 = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, 30), Quaternion.identity) as GameObject;
                 if (data_values[i] == "Tile_Ramp")
                 {
                     
-                    GameObject tileLeftPrefab = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, add), Quaternion.Euler(-25, 0, 0)) as GameObject;
-                    add += tileLength;
+                    GameObject tileLeftPrefab = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, add), Quaternion.Euler(-35, 0, 0)) as GameObject;
+                    add += 2*tileLength;
 
                 }
 
