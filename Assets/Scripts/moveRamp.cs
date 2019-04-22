@@ -8,7 +8,7 @@ public class moveRamp : MonoBehaviour
 
     private Vector3 pos1;
     private Vector3 pos2; 
-    public float speed = 1.0f;
+    public float speed = 0.5f;
 
     private void Start()
     {       

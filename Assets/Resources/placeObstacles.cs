@@ -36,7 +36,7 @@ public class placeObstacles : MonoBehaviour
                 //Debug.Log(" value: "+data_values[i]);//4
                 if (data_values[i] == "Obstacle_Cube")
                 {
-                    GameObject Cube = Instantiate(Resources.Load("Obstacle_Cube"), new Vector3(int.Parse(data_values[i+1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.identity) as GameObject;
+                    GameObject Cube = Instantiate(Resources.Load("Obstacle_Cube"), new Vector3(int.Parse(data_values[i+1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90,0,0)) as GameObject;
 
                 }
                 //GameObject tileInstances1 = Instantiate(Resources.Load("TileNew"), new Vector3(0, 0, 30), Quaternion.identity) as GameObject;
@@ -47,10 +47,14 @@ public class placeObstacles : MonoBehaviour
                 }
                 if (data_values[i] == "Obstacle_Cylinder")
                 {
-                    GameObject Cylinder = Instantiate(Resources.Load("Obstacle_Cylinder"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.identity) as GameObject;
+                    GameObject Cylinder = Instantiate(Resources.Load("Obstacle_Cylinder"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 90)) as GameObject;
 
                 }
+                if (data_values[i] == "wall")
+                {
+                    GameObject Cylinder = Instantiate(Resources.Load("wall"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
 
+                }
             }
 
         } 

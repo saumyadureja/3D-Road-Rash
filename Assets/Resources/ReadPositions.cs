@@ -48,14 +48,14 @@ public class ReadPositions : MonoBehaviour
                 if (data_values[i] == "Tile_RampLeftL1")
                 {
                     add += tileLength;
-                    GameObject tileLeftPrefab = Instantiate(Resources.Load("Tile_RampLeftL1"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
+                    GameObject tileLeftPrefab = Instantiate(Resources.Load("Tile_RampLeftL1"), new Vector3(0, 0, add), Quaternion.Euler(-25, 0, 0)) as GameObject;
 
 
                 }
                 if (data_values[i] == "Tile_RampRightL1")
                 {
                     add += tileLength;
-                    GameObject tileRightPrefab = Instantiate(Resources.Load("Tile_RampRightL1"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
+                    GameObject tileRightPrefab = Instantiate(Resources.Load("Tile_RampRightL1"), new Vector3(0, 0, add), Quaternion.Euler(-25, 0, 0)) as GameObject;
 
                 }
 
