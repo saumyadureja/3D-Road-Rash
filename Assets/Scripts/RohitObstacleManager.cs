@@ -40,7 +40,7 @@ public class RohitObstacleManager : MonoBehaviour
         {
             Vector3 position = new Vector3(Random.Range(-6.0f, 6.0f), 1, i);
             GameObject go;
-            Debug.Log("Calling getPrefabIndex:" + i);
+            //Debug.Log("Calling getPrefabIndex:" + i);
             int prefabIndex = GetRandomIndex();
             go = Instantiate(obstaclePrefabs[prefabIndex]);
             go.transform.SetParent(GameObject.FindGameObjectWithTag("ObstacleManagerTag").transform);
@@ -71,7 +71,7 @@ public class RohitObstacleManager : MonoBehaviour
         {
             prefabIndex = Random.Range(0, 3);
         }
-        Debug.Log("Inside random prefab creation Probability: " + rand + "Returned value: "  + prefabIndex);
+        //Debug.Log("Inside random prefab creation Probability: " + rand + "Returned value: "  + prefabIndex);
 
         return prefabIndex;
 

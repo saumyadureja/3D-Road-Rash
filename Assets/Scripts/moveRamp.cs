@@ -12,8 +12,8 @@ public class moveRamp : MonoBehaviour
 
     private void Start()
     {       
-        pos1 = new Vector3(-4, 0, transform.position.z);
-        pos2 = new Vector3(4, 0, transform.position.z);
+        pos1 = new Vector3(-4, 3.53f, transform.position.z);
+        pos2 = new Vector3(4, 3.53f, transform.position.z);
     }
 
     // Update is called once per frame

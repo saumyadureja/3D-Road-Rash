@@ -53,7 +53,7 @@ public class RohitPathGenerator : MonoBehaviour
             if(index == 1)
             {
                 add = 2*rampLength;            
-                spawnPosition = new Vector3(0, 4.0f, spawnZ);
+                spawnPosition = new Vector3(0, 100.0f, spawnZ);
                 // Ramp is spawned so destroy all obstacles
                 Debug.Log("Ramp Created calling destroy obstacles");
                 DestroyObstacles(spawnZ,add);                
