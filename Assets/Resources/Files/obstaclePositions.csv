@@ -1,5 +1,5 @@
 Obstacle_Cube,-4,3,14
-Obstacle_Sphere,1,3,-1
+Obstacle_Sphere,1,3,10
 Obstacle_Cylinder,1,4,17
 Obstacle_Cube,4,3,34
 wall,0,2,80

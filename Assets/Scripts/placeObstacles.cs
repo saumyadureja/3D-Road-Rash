@@ -14,7 +14,7 @@ public class placeObstacles : MonoBehaviour
     // Update is called once per frame
     void ReadCSVFile()
     {
-         StreamReader streamReader = new StreamReader("Assets/Resources/obstaclePositions.csv");
+         StreamReader streamReader = new StreamReader("Assets/Resources/Files/obstaclePositions.csv");
         bool eof = false;
        
         while (!eof)
