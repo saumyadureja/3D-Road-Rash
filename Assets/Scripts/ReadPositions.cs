@@ -38,16 +38,17 @@ public class ReadPositions : MonoBehaviour
                     
                     GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Main"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
                     add += tileLength;
+                    tileNewPrefab.transform.SetParent(transform);
 
                 }
                 if (data_values[i] == "Tile_Ramp")
                 {
-                    
-                    GameObject tileLeftPrefab = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, add), Quaternion.Euler(-35, 0, 0)) as GameObject;
+
+                    GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, add), Quaternion.Euler(-35, 0, 0)) as GameObject;
                     add += 2*tileLength;
-
+                    tileNewPrefab.transform.SetParent(transform);
                 }
-
+                
             }
 
         }

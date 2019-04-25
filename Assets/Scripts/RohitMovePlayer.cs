@@ -32,7 +32,6 @@ public class RohitMovePlayer : MonoBehaviour
         capsule.SetActive(true);
         sphere.SetActive(false);
         cube.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -105,7 +104,8 @@ public class RohitMovePlayer : MonoBehaviour
             Death();
         }
 
-        
+        // Calling the wall remover function
+        GameObject.Find("ObstacleManager").GetComponent<PlaceObstacles>().RemoveWall(transform.position.z);
 
     }
 
