@@ -15,7 +15,7 @@ public class RohitScoresCalculations : MonoBehaviour
     private readonly int maxDifficultLevel = 4;
     private int scoreToNextLevel = 5;
 
-    private int[] targetArray = {6, 9, 15, 20};
+    private int[] targetArray =new int[] {6, 11 , 17, 22};
     private int currentTargetIndex = 0;
 
     private float startPosition;
@@ -95,5 +95,7 @@ public class RohitScoresCalculations : MonoBehaviour
             // Do nothing as of now
         }
         scoreText.text = "" + this.currentSum;
+
+        Debug.Log("Current Index: " + currentTargetIndex + " Value: " + targetArray[currentTargetIndex]);
     }
 }

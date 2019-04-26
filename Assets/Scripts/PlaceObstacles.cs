@@ -44,12 +44,14 @@ public class PlaceObstacles : MonoBehaviour
 
             Quaternion rotation;
             Vector3 position;
+            int numberValue;
             switch (type)
             {
             case "Obstacle_Sphere":
             case "Obstacle_Cube":
             case "Obstacle_Cylinder":
                 rotation = Quaternion.Euler(0,0,0);
+                numberValue = int.Parse(data_values[4]);
                 position = new Vector3(
                     int.Parse(data_values[1]),
                     int.Parse(data_values[2]) + 0.5f,
@@ -68,10 +70,10 @@ public class PlaceObstacles : MonoBehaviour
                 GameObject obstacle = Instantiate(Resources.Load(type), position, rotation) as GameObject;
                 obstacle.transform.SetParent(this.transform);
 
-                int number = rnd.Next(10);
+                // int number = rnd.Next(10);
                 // Debug.Log(type + " was assigned " + number);
                 Renderer rend = obstacle.GetComponent<Renderer>();
-                Texture numText = Resources.Load("Numbers/" + number) as Texture;
+                Texture numText = Resources.Load("Numbers/" + numberValue) as Texture;
                 rend.material.mainTexture = numText;
 
                 break;
