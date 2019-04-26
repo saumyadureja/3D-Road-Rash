@@ -118,41 +118,44 @@ public class RohitMovePlayer : MonoBehaviour
         {
             Debug.Log("Collided with: " + hit.gameObject.name);
 
-            if (hit.gameObject.name == "Obstacle_Sphere(Clone)")
+            if (hit.gameObject.name == "Obstacle_Sphere(Clone)" 
+                || hit.gameObject.name == "Obstacle_Cube(Clone)" 
+                || hit.gameObject.name == "Obstacle_Cylinder(Clone)")
             {
                 // Sphere hit
                 GetComponent<RohitPlayerState>().CyclePowerUp();
+                GetComponent<RohitScoresCalculations>().AddSum(hit.gameObject);
                 Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
                 isSphere = true;
                 isCube = false;
 
             }
-            else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
-            {
-                // Cube hit
-                GetComponent<RohitPlayerState>().SkatePowerUp();
-                Destroy(hit.gameObject);
-                isCube = true;
-                isSphere = false;
-            }
-            else if (hit.gameObject.name == "Obstacle_Cylinder(Clone)")
-            {
-                // reduce the  health
-                Destroy(hit.gameObject);
-                GetComponent<RohitHealthCalculation>().ReduceHealth(30.0f);
+            //else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
+            //{
+            //    // Cube hit
+            //    GetComponent<RohitPlayerState>().SkatePowerUp();
+            //    Destroy(hit.gameObject);
+            //    isCube = true;
+            //    isSphere = false;
+            //}
+            //else if (hit.gameObject.name == "Obstacle_Cylinder(Clone)")
+            //{
+            //    // reduce the  health
+            //    Destroy(hit.gameObject);
+            //    GetComponent<RohitHealthCalculation>().ReduceHealth(30.0f);
 
-            }
-            else if (hit.gameObject.name.StartsWith("Obstacle_Health", true, ci))
-            {
-                // reduce the  health
-                Destroy(hit.gameObject);
-                GetComponent<RohitHealthCalculation>().IncreaseHealth(40.0f);
+            //}
+            //else if (hit.gameObject.name.StartsWith("Obstacle_Health", true, ci))
+            //{
+            //    // reduce the  health
+            //    Destroy(hit.gameObject);
+            //    GetComponent<RohitHealthCalculation>().IncreaseHealth(40.0f);
 
-            }
+            //}
             else
             {
-                Death();
+                // Death();
             }
         }
 
