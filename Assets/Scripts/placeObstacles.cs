@@ -42,42 +42,55 @@ public class PlaceObstacles : MonoBehaviour
                 continue;
             }
 
+            Quaternion rotation;
+            Vector3 position;
             switch (type)
             {
-                case "Obstacle_Cube":
-                case "Obstacle_Sphere":
-                case "Obstacle_Cylinder":
-
-                GameObject obstacle = Instantiate(Resources.Load(type), new Vector3(
+            case "Obstacle_Sphere":
+            case "Obstacle_Cube":
+            case "Obstacle_Cylinder":
+                rotation = Quaternion.Euler(0,0,0);
+                position = new Vector3(
                     int.Parse(data_values[1]),
                     int.Parse(data_values[2]) + 0.5f,
-                    int.Parse(data_values[3])), Quaternion.Euler(0,0,0)) as GameObject;
+                    int.Parse(data_values[3]));
+
+                if (type == "Obstacle_Sphere")
+                {
+                    rotation = Quaternion.Euler(0,90,0);
+                }
+
+                if (type == "Obstacle_Cylinder")
+                {
+                    position = new Vector3(position.x, position.y + 1f, position.z);
+                }
+
+                GameObject obstacle = Instantiate(Resources.Load(type), position, rotation) as GameObject;
                 obstacle.transform.SetParent(this.transform);
 
                 int number = rnd.Next(10);
-                Debug.Log(type + " was assigned " + number);
+                // Debug.Log(type + " was assigned " + number);
                 Renderer rend = obstacle.GetComponent<Renderer>();
                 Texture numText = Resources.Load("Numbers/" + number) as Texture;
                 rend.material.mainTexture = numText;
-                Debug.Log(rend);
-                Debug.Log(numText);
 
                 break;
 
-                case "wall_cube":
-                case "wall_sphere":
-                case "wall_both":
-
-                GameObject wall = Instantiate(Resources.Load(type), new Vector3(
+            case "wall_cube":
+            case "wall_sphere":
+            case "wall_both":
+                rotation = Quaternion.Euler(-90,0,0);
+                position = new Vector3(
                     int.Parse(data_values[1]),
                     int.Parse(data_values[2]),
-                    int.Parse(data_values[3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
+                    int.Parse(data_values[3]));
+                GameObject wall = Instantiate(Resources.Load(type), position, rotation) as GameObject;
                 wall.transform.SetParent(this.transform);
                 walls.AddLast(wall);
 
                 break;
 
-                default: Debug.LogWarning("Unrecognized obstacle type '" + type + "' in CSV.");
+            default: Debug.LogWarning("Unrecognized obstacle type '" + type + "' in CSV.");
 
                 break;
             }            
