@@ -15,6 +15,9 @@ public class RohitScoresCalculations : MonoBehaviour
     private readonly int maxDifficultLevel = 4;
     private int scoreToNextLevel = 5;
 
+    private int[] targetArray = {6, 9, 15, 20};
+    private int currentTargetIndex = 0;
+
     private float startPosition;
     private float currentPosition;
 
@@ -24,24 +27,25 @@ public class RohitScoresCalculations : MonoBehaviour
     {
         startPosition = GetComponent<RohitMovePlayer>().transform.position.z;
         scoreText.text = "0";
-        targetText.text = "9";
+        targetText.text = "Target: " + targetArray[currentTargetIndex];
     }
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //    if (isDead)
-    //    {
-    //        return;
-    //    }
-    //    if (score >= scoreToNextLevel)
-    //    {
-    //        //LevelUp();
-    //    }
-    //    currentPosition = GetComponent<RohitMovePlayer>().transform.position.z;
-    //    score = currentPosition - startPosition;
-    //    scoreText.text = "Score: " + ((int)score).ToString();
-    //}
+    void Update()
+    {
+        targetText.text = "Target: " + targetArray[currentTargetIndex];
+        if (isDead)
+        {
+            return;
+        }
+        //    if (score >= scoreToNextLevel)
+        //    {
+        //        //LevelUp();
+        //    }
+        //    currentPosition = GetComponent<RohitMovePlayer>().transform.position.z;
+        //    score = currentPosition - startPosition;
+        //    scoreText.text = "Score: " + ((int)score).ToString();
+    }
 
     private void LevelUp()
     {
@@ -65,6 +69,31 @@ public class RohitScoresCalculations : MonoBehaviour
         //Debug.Log(selectedNumber.GetComponent<Renderer>().material.mainTexture.name);
         String textureName = selectedNumber.GetComponent<Renderer>().material.mainTexture.name;
         this.currentSum += Convert.ToInt32(textureName);
-        scoreText.text = "" + currentSum;
+
+
+        if(this.currentSum == targetArray[currentTargetIndex] || this.currentSum % targetArray[currentTargetIndex] == 0)
+        {
+            currentTargetIndex++;
+            if(currentTargetIndex >= targetArray.Length)
+            {
+                // Game Finished
+                Debug.Log("Game finished");
+                // Remove this line afterwards
+                isDead = true;
+            }
+
+            Debug.Log("Target Achieved!!!" + this.currentSum);
+            this.currentSum = 0;
+        }
+        else if(this.currentSum > targetArray[currentTargetIndex])
+        {
+            // Penalize the player, it has exceeded the target
+            this.currentSum -= targetArray[currentTargetIndex];
+        }
+        else
+        {
+            // Do nothing as of now
+        }
+        scoreText.text = "" + this.currentSum;
     }
 }

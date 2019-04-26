@@ -116,7 +116,7 @@ public class RohitMovePlayer : MonoBehaviour
     {
         if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && HitCheckAllDirections(hit))
         {
-            Debug.Log("Collided with: " + hit.gameObject.name);
+            //Debug.Log("Collided with: " + hit.gameObject.name);
 
             if (hit.gameObject.name == "Obstacle_Sphere(Clone)" 
                 || hit.gameObject.name == "Obstacle_Cube(Clone)" 
@@ -125,7 +125,7 @@ public class RohitMovePlayer : MonoBehaviour
                 // Sphere hit
                 GetComponent<RohitPlayerState>().CyclePowerUp();
                 GetComponent<RohitScoresCalculations>().AddSum(hit.gameObject);
-                Debug.Log("in health reduction if");
+                //Debug.Log("in health reduction if");
                 Destroy(hit.gameObject);
                 isSphere = true;
                 isCube = false;
