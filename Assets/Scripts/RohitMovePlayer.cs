@@ -185,7 +185,7 @@ public class RohitMovePlayer : MonoBehaviour
     }
     public void onReset()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
     public void onJump()
