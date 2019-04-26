@@ -62,7 +62,9 @@ public class RohitScoresCalculations : MonoBehaviour
 
     public void AddSum(GameObject selectedNumber)
     {
-        this.currentSum += 1;
+        //Debug.Log(selectedNumber.GetComponent<Renderer>().material.mainTexture.name);
+        String textureName = selectedNumber.GetComponent<Renderer>().material.mainTexture.name;
+        this.currentSum += Convert.ToInt32(textureName);
         scoreText.text = "" + currentSum;
     }
 }

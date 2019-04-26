@@ -17,7 +17,7 @@ public class Globals : MonoBehaviour
 
     public void removeWall(float zPosition)
     {
-        Debug.Log("Wall count: " + walls.Count);
+        //Debug.Log("Wall count: " + walls.Count);
         if (walls.Count > 0)
         {
             GameObject firstWall = walls.First.Value;

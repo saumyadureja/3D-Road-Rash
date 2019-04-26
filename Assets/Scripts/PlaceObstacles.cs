@@ -101,7 +101,7 @@ public class PlaceObstacles : MonoBehaviour
 
     public void RemoveWall(float zPosition)
     {
-        Debug.Log("Wall count: " + walls.Count);
+        //Debug.Log("Wall count: " + walls.Count);
         if (walls.Count > 0)
         {
             GameObject firstWall = walls.First.Value;
