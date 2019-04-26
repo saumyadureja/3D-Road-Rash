@@ -6,73 +6,81 @@ using System.IO;
 public class PlaceObstacles : MonoBehaviour
 {
     public LinkedList<GameObject> walls;
+    public string fileName;
+    private System.Random rnd;
+
     // Start is called before the first frame update
     void Start()
     {
         walls = new LinkedList<GameObject>();
-        ReadCSVFile();  
+        rnd = new System.Random();
+        ReadCSVFile();
     }
 
-    // Update is called once per frame
     void ReadCSVFile()
     {
-         StreamReader streamReader = new StreamReader("Assets/Resources/Files/Level1_Obstacles.csv");
+        StreamReader streamReader = new StreamReader("Assets/Resources/Files/" + fileName);
         bool eof = false;
        
         while (!eof)
         {
             string data = streamReader.ReadLine ();
-            if(data ==null)
+            if(data == null)
             {
                 eof = true;
                 break;
-
-
             }
+
             string[] data_values = data.Split(',');
-            for(int i = 0; i < data_values.Length; i++)
-            {
-                //Debug.Log("Values:" + i.ToString() + " " + data_values[i].ToString());
-                //Debug.Log(data_values[i].ToString());
-                
-                //Debug.Log(" value: "+data_values[i]);//4
-                if (data_values[i] == "Obstacle_Cube")
-                {
-                    GameObject Cube = Instantiate(Resources.Load("Obstacle_Cube"), new Vector3(int.Parse(data_values[i+1]), int.Parse(data_values[i + 2]) + 0.5f, int.Parse(data_values[i + 3])), Quaternion.Euler(0,0,0)) as GameObject;
-                    Cube.transform.SetParent(transform);
-                }
-                //GameObject tileInstances1 = Instantiate(Resources.Load("TileNew"), new Vector3(0, 0, 30), Quaternion.identity) as GameObject;
-                if (data_values[i] == "Obstacle_Sphere")
-                {
-                    GameObject Sphere = Instantiate(Resources.Load("Obstacle_Sphere"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.identity) as GameObject;
-                    Sphere.transform.SetParent(transform);
-                }
-                if (data_values[i] == "Obstacle_Cylinder")
-                {
-                    GameObject Cylinder = Instantiate(Resources.Load("Obstacle_Cylinder"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 90)) as GameObject;
-                    Cylinder.transform.SetParent(transform);
-                }
-                if (data_values[i] == "wall_cube")
-                {
-                    GameObject Wall = Instantiate(Resources.Load("wall_cube"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
-                    Wall.transform.SetParent(transform);
-                    walls.AddLast(Wall);
-                }
-                if (data_values[i] == "wall_sphere")
-                {
-                    GameObject Wall = Instantiate(Resources.Load("wall_sphere"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
-                    Wall.transform.SetParent(transform);
-                    walls.AddLast(Wall);
-                }
-                if (data_values[i] == "wall_both")
-                {
-                    GameObject Wall = Instantiate(Resources.Load("wall_both"), new Vector3(int.Parse(data_values[i + 1]), int.Parse(data_values[i + 2]), int.Parse(data_values[i + 3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
-                    Wall.transform.SetParent(transform);
-                    walls.AddLast(Wall);
-                }
+            
+            // Debug.Log(Line + ": "+data_values[i]);
+
+            string type = data_values[0];
+
+            if (type == "") {
+                Debug.LogWarning("Empty line in CSV?");
+                continue;
             }
 
-            
+            switch (type)
+            {
+                case "Obstacle_Cube":
+                case "Obstacle_Sphere":
+                case "Obstacle_Cylinder":
+
+                GameObject obstacle = Instantiate(Resources.Load(type), new Vector3(
+                    int.Parse(data_values[1]),
+                    int.Parse(data_values[2]) + 0.5f,
+                    int.Parse(data_values[3])), Quaternion.Euler(0,0,0)) as GameObject;
+                obstacle.transform.SetParent(this.transform);
+
+                int number = rnd.Next(10);
+                Debug.Log(type + " was assigned " + number);
+                Renderer rend = obstacle.GetComponent<Renderer>();
+                Texture numText = Resources.Load("Numbers/" + number) as Texture;
+                rend.material.mainTexture = numText;
+                Debug.Log(rend);
+                Debug.Log(numText);
+
+                break;
+
+                case "wall_cube":
+                case "wall_sphere":
+                case "wall_both":
+
+                GameObject wall = Instantiate(Resources.Load(type), new Vector3(
+                    int.Parse(data_values[1]),
+                    int.Parse(data_values[2]),
+                    int.Parse(data_values[3])), Quaternion.Euler(-90, 0, 0)) as GameObject;
+                wall.transform.SetParent(this.transform);
+                walls.AddLast(wall);
+
+                break;
+
+                default: Debug.LogWarning("Unrecognized obstacle type '" + type + "' in CSV.");
+
+                break;
+            }            
         }
         Debug.Log("Walls size: " + walls.Count);
         RemoveWall(5.0f);
