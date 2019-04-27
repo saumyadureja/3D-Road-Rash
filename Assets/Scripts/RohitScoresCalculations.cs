@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RohitScoresCalculations : MonoBehaviour
 {
-    private float score = 0.0f;
+    //private float score = 0.0f;
     public Text scoreText;
     public Text targetText;
 

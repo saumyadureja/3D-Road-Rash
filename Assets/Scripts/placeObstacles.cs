@@ -19,16 +19,21 @@ public class PlaceObstacles : MonoBehaviour
 
     void ReadCSVFile()
     {
-        StreamReader streamReader = new StreamReader("Assets/Resources/Files/" + fileName);
-        bool eof = false;
-       
-        while (!eof)
+        // StreamReader streamReader = new StreamReader("Assets/Resources/Files/" + fileName);
+        TextAsset txt = (TextAsset)Resources.Load("Files/Level1_Obstacles", typeof(TextAsset));
+        string filecontent = txt.text;
+
+        string[] positionArray = filecontent.Split('\n');
+
+        for (int i = 0; i < positionArray.Length; i++)
         {
-            string data = streamReader.ReadLine ();
-            if(data == null)
+            string data = positionArray[i].Trim();
+            Debug.Log(i + ":" + data);
+           
+            if(data == null || data.Length == 0)
             {
-                eof = true;
-                break;
+                
+                continue;
             }
 
             string[] data_values = data.Split(',');

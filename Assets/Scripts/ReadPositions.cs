@@ -17,40 +17,32 @@ public class ReadPositions : MonoBehaviour
 
     void ReadCSVFile()
     {
-        StreamReader streamReader = new StreamReader("Assets/Resources/Files/Level1_Path.csv");
-        bool eof = false;
+        //StreamReader streamReader = new StreamReader("Assets/Resources/Files/Level1_Path.csv");
+        TextAsset txt = (TextAsset)Resources.Load("Files/Level1_Path", typeof(TextAsset));
+        string filecontent = txt.text;
 
-        while (!eof)
-        {
-            string data = streamReader.ReadLine();
-            if (data == null)
-            {
-                eof = true;
-                break;
+        string[] positionArray = filecontent.Split('\n');
 
-
+        for(int i = 0; i < positionArray.Length; i++)
+        { 
+            string data = positionArray[i].Trim();
+            Debug.Log(i + ":" + data);
+            if (data == "Tile_Main")
+            {                    
+                GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Main"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
+                add += tileLength;
+                tileNewPrefab.transform.SetParent(transform);
             }
-            string[] data_values = data.Split(',');
-            for (int i = 0; i < data_values.Length; i++)
+            else if (data == "Tile_Ramp")
             {
-                if (data_values[i] == "Tile_Main")
-                {
-                    
-                    GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Main"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
-                    add += tileLength;
-                    tileNewPrefab.transform.SetParent(transform);
-
-                }
-                if (data_values[i] == "Tile_Ramp")
-                {
-
-                    GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, add), Quaternion.Euler(-35, 0, 0)) as GameObject;
-                    add += 2*tileLength;
-                    tileNewPrefab.transform.SetParent(transform);
-                }
-                
+                GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, add), Quaternion.Euler(-35, 0, 0)) as GameObject;
+                add += 2*tileLength;
+                tileNewPrefab.transform.SetParent(transform);
             }
-
+            else
+            {
+                continue;
+            }
         }
 
     }
