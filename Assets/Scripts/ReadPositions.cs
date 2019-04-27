@@ -31,13 +31,18 @@ public class ReadPositions : MonoBehaviour
             {                    
                 GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Main"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
                 add += tileLength;
-                tileNewPrefab.transform.SetParent(transform);
+                tileNewPrefab.transform.SetParent(this.transform);
             }
             else if (data == "Tile_Ramp")
             {
                 GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Ramp"), new Vector3(0, 0, add), Quaternion.Euler(-35, 0, 0)) as GameObject;
                 add += 2*tileLength;
-                tileNewPrefab.transform.SetParent(transform);
+                tileNewPrefab.transform.SetParent(this.transform);
+            }
+            else if(data == "Wall")
+            {
+                GameObject wall = Instantiate(Resources.Load("wall_sphere"), new Vector3(-0.46f, 4, add), Quaternion.Euler(-90, 0, 0)) as GameObject;
+                wall.transform.SetParent(this.transform);
             }
             else
             {
