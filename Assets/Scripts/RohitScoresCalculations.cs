@@ -64,7 +64,7 @@ public class RohitScoresCalculations : MonoBehaviour
         scoreText.text = "Game Over";
     }
 
-    public void AddSum(GameObject selectedNumber)
+    public string AddSum(GameObject selectedNumber)
     {
         //Debug.Log(selectedNumber.GetComponent<Renderer>().material.mainTexture.name);
         String textureName = selectedNumber.GetComponent<Renderer>().material.mainTexture.name;
@@ -97,5 +97,6 @@ public class RohitScoresCalculations : MonoBehaviour
         scoreText.text = "" + this.currentSum;
 
         Debug.Log("Current Index: " + currentTargetIndex + " Value: " + targetArray[currentTargetIndex]);
+        return textureName;
     }
 }

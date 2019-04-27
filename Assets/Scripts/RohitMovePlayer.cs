@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Globalization;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RohitMovePlayer : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class RohitMovePlayer : MonoBehaviour
     public GameObject sphere;
     public GameObject capsule;
     private CharacterController controller;
+    public Text addValueText;
     private float speed = 10.0f;
     private float horizontalSpeed = 2.5f;
     private float speedMultiplier = 5.0f;
@@ -124,9 +126,20 @@ public class RohitMovePlayer : MonoBehaviour
             {
                 // Sphere hit
                 GetComponent<RohitPlayerState>().CyclePowerUp();
-                GetComponent<RohitScoresCalculations>().AddSum(hit.gameObject);
+                
+                String textureName = GetComponent<RohitScoresCalculations>().AddSum(hit.gameObject);
+                //addValueText.text = textureName;
+                //addValueText.transform.position = this.transform.position;
+                LeanTween.move(hit.gameObject, new Vector3(-10,20,this.transform.position.z + 10), 0.5f);
+                //Material hitObjectMaterial = hit.gameObject.GetComponent<MeshRenderer>().material;
+
+
+                Color color = hit.gameObject.GetComponent<MeshRenderer>().material.color;
+                color.a = 0.5f;
+                hit.gameObject.GetComponent<MeshRenderer>().material.color = color;
+
                 //Debug.Log("in health reduction if");
-                Destroy(hit.gameObject);
+                //Destroy(hit.gameObject);
                 isSphere = true;
                 isCube = false;
 
