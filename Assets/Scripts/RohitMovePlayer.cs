@@ -215,4 +215,9 @@ public class RohitMovePlayer : MonoBehaviour
         
     }
 
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
