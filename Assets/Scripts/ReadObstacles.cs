@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class PlaceObstacles : MonoBehaviour
+public class ReadObstacles : MonoBehaviour
 {
     // public LinkedList<GameObject> walls;
     public string fileName;
@@ -24,8 +24,7 @@ public class PlaceObstacles : MonoBehaviour
 
     void ReadCSVFile()
     {
-        // StreamReader streamReader = new StreamReader("Assets/Resources/Files/" + fileName);
-        TextAsset txt = (TextAsset)Resources.Load("Files/Level1_Obstacles", typeof(TextAsset));
+        TextAsset txt = (TextAsset)Resources.Load("Files/" + fileName, typeof(TextAsset));
         string filecontent = txt.text;
 
         string[] positionArray = filecontent.Split('\n');
@@ -90,8 +89,9 @@ public class PlaceObstacles : MonoBehaviour
 
             case "wall_cube":
             case "wall_sphere":
+            case "Wall_Target":
             case "wall_both":
-                rotation = Quaternion.Euler(-90,0,0);
+                rotation = Quaternion.Euler(0,0,0);
                 numberValue = int.Parse(data_values[4]);
                 position = new Vector3(
                     int.Parse(data_values[1]),
@@ -100,10 +100,6 @@ public class PlaceObstacles : MonoBehaviour
                 GameObject wall = Instantiate(Resources.Load(type), position, rotation) as GameObject;
                 wall.transform.SetParent(this.transform);
                 // walls.AddLast(wall);
-
-                Renderer wallRend = wall.GetComponent<Renderer>();
-                Texture wallNumText = Resources.Load("Numbers/" + numberValue) as Texture;
-                wallRend.material.mainTexture = wallNumText;
 
                 targetList.AddLast(numberValue);
                 break;

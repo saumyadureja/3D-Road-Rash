@@ -41,7 +41,7 @@ public class ReadPositions : MonoBehaviour
             }
             else if(data == "Wall")
             {
-                GameObject wall = Instantiate(Resources.Load("wall_sphere"), new Vector3(-0.46f, 4, add), Quaternion.Euler(-90, 0, 0)) as GameObject;
+                GameObject wall = Instantiate(Resources.Load("Wall_Target"), new Vector3(-0.46f, 4, add), Quaternion.Euler(-90, 0, 0)) as GameObject;
                 wall.transform.SetParent(this.transform);
             }
             else

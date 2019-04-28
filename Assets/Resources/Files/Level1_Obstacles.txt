@@ -1,7 +1,7 @@
 Obstacle_Cube,-3,1,60,1
 Obstacle_Sphere,0,1,60,2
 Obstacle_Cylinder,3,1,60,3
-wall_sphere,0,4,100,3
+Wall_Target,0,4,100,3
 Obstacle_Cube,-3,1,120,3
 Obstacle_Cube,0,1,120,1
 Obstacle_Cube,3,1,120,4
@@ -14,7 +14,7 @@ Obstacle_Cube,3,1,250,3
 Obstacle_Cylinder,-3,1,350,5
 Obstacle_Cube,0,1,350,9
 Obstacle_Sphere,3,1,350,1
-wall_sphere,0,4,400,5
+Wall_Target,0,4,400,5
 Obstacle_Cylinder,-3,1,430,6
 Obstacle_Cube,0,1,430,3
 Obstacle_Sphere,3,1,430,4
@@ -36,4 +36,4 @@ Obstacle_Cylinder,3,1,870,7
 Obstacle_Cube,-3,1,870,4
 Obstacle_Cylinder,0,1,870,7
 Obstacle_Cylinder,3,1,870,8
-wall_sphere,0,4,950,9
+Wall_Target,0,4,950,9

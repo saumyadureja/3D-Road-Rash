@@ -1770,7 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45756028088aaff47a8d5c7c6badfb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: Level1_Obstacles.csv
+  fileName: Level1_Obstacles
 --- !u!1 &1509307543
 GameObject:
   m_ObjectHideFlags: 0

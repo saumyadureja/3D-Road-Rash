@@ -148,7 +148,7 @@ public class RohitPathGenerator : MonoBehaviour
         {
             // Place the wall 
 
-            GameObject Wall = Instantiate(Resources.Load("wall_sphere"), new Vector3(0, 4.0f, zLocation + 5.0f), Quaternion.Euler(-90, 0, 0)) as GameObject;
+            GameObject Wall = Instantiate(Resources.Load("Wall_Target"), new Vector3(0, 4.0f, zLocation + 5.0f), Quaternion.Euler(-90, 0, 0)) as GameObject;
            
         } else if (rand >= 70 && rand < 85)
         {
