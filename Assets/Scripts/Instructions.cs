@@ -17,7 +17,7 @@ public class Instructions : MonoBehaviour
 
    public void ShowTiltingInstruction()
     {
-        instructionsText.text = "Tilt the phone Left Right to steer!!";
+        instructionsText.text = "Tilt the phone Left-Right to steer!!";
         instructionsText.enabled = true;
         Invoke("DisableTiltText", 4.0f);
     }
@@ -63,7 +63,7 @@ public class Instructions : MonoBehaviour
     public void DisableAvoidInstruction()
     {
         instructionsText.enabled = false;
-        Invoke("ShowTargetInstruction", 2.0f);
+        Invoke("ShowTargetInstruction", 4.0f);
     }
     public void ShowTargetInstruction()
     {
@@ -75,14 +75,14 @@ public class Instructions : MonoBehaviour
     public void DisableTargetInstruction()
     {
         instructionsText.enabled = false;
-        Invoke("ShowLastInstruction", 2.0f);
+        Invoke("ShowLastInstruction", 4.0f);
     }
 
     public void ShowLastInstruction()
     {
         instructionsText.text = "You have finished the demo !!";
         instructionsText.enabled = true;
-        Invoke("DisableFinalInstruction", 4.0f);
+        Invoke("DisableFinalInstruction", 3.0f);
     }
 
     public void DisableFinalInstruction()
