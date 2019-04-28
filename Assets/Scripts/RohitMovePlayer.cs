@@ -10,7 +10,7 @@ public class RohitMovePlayer : MonoBehaviour
 {
     private CharacterController controller;
 
-    private float speed = 20.0f;
+    private float speed = 15.0f;
     private float horizontalSpeed = 2.5f;
     private float speedMultiplier = 5.0f;
     private Vector3 moveVector;
