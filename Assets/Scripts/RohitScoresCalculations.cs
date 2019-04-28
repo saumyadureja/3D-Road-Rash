@@ -99,4 +99,9 @@ public class RohitScoresCalculations : MonoBehaviour
         Debug.Log("Current Index: " + currentTargetIndex + " Value: " + targetArray[currentTargetIndex]);
         return textureName;
     }
+
+    public int getCurrentSum()
+    {
+        return this.currentSum;
+    }
 }

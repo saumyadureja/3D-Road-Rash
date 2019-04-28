@@ -31,7 +31,7 @@ public class RohitHealthCalculation : MonoBehaviour
 
     public void ReduceHealth(float reductionAmt)
     {
-        
+        Debug.Log("Reducing health by: " + reductionAmt);
         this.health -= reductionAmt;
     }
 

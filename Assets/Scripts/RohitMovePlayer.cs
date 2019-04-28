@@ -107,7 +107,7 @@ public class RohitMovePlayer : MonoBehaviour
         }
 
         // Calling the wall remover function
-        GameObject.Find("ObstacleManager").GetComponent<PlaceObstacles>().RemoveWall(transform.position.z);
+        // GameObject.Find("ObstacleManager").GetComponent<PlaceObstacles>().RemoveWall(transform.position.z);
 
     }
 
@@ -118,7 +118,7 @@ public class RohitMovePlayer : MonoBehaviour
     {
         if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && HitCheckAllDirections(hit))
         {
-            //Debug.Log("Collided with: " + hit.gameObject.name);
+            Debug.Log("Collided with: " + hit.gameObject.name);
 
             if (hit.gameObject.name == "Obstacle_Sphere(Clone)" 
                 || hit.gameObject.name == "Obstacle_Cube(Clone)" 
@@ -143,6 +143,18 @@ public class RohitMovePlayer : MonoBehaviour
                 isSphere = true;
                 isCube = false;
 
+            }
+            else if(hit.gameObject.name.StartsWith("wall", true, ci))
+            {
+                // Wall is hit
+                Debug.Log("Wall hit with value: " + hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
+
+                float diff = 0.0f;
+                int currentSum = GetComponent<RohitScoresCalculations>().getCurrentSum();
+                int wallNumber = int.Parse(hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
+                diff = Math.Abs(currentSum - wallNumber);
+                GetComponent<RohitHealthCalculation>().ReduceHealth(diff*5.0f);
+                Destroy(hit.gameObject);
             }
             //else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
             //{

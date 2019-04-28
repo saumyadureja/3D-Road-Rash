@@ -26,7 +26,7 @@ public class ReadPositions : MonoBehaviour
         for(int i = 0; i < positionArray.Length; i++)
         { 
             string data = positionArray[i].Trim();
-            Debug.Log(i + ":" + data);
+            // Debug.Log(i + ":" + data);
             if (data == "Tile_Main")
             {                    
                 GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Main"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
