@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.47233903, g: 0.80141634, b: 0.896578, a: 1}
+  m_IndirectSpecularColor: {r: 0.47234368, g: 0.80141455, b: 0.8965815, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1217, y: -595}
+  m_AnchoredPosition: {x: -1042, y: -595}
   m_SizeDelta: {x: 93.33, y: 88.23}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &17584531
@@ -365,7 +365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1222, y: -941}
+  m_AnchoredPosition: {x: -570.23, y: -595}
   m_SizeDelta: {x: 91.674, y: 84.84}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &811262449
@@ -402,8 +402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 448}
-  m_SizeDelta: {x: 1200, y: 300}
+  m_AnchoredPosition: {x: -17, y: 394}
+  m_SizeDelta: {x: 1165.7, y: 292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811262451
 MonoBehaviour:
@@ -432,7 +432,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -481,8 +481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 240, y: 156}
-  m_SizeDelta: {x: 600, y: 300}
+  m_AnchoredPosition: {x: 238.48, y: 150}
+  m_SizeDelta: {x: 596.2, y: 133.8}
   m_Pivot: {x: 0.9, y: 0.5}
 --- !u!114 &1131156251
 MonoBehaviour:
@@ -511,7 +511,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
