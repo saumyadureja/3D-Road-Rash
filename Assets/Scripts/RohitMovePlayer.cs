@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class RohitMovePlayer : MonoBehaviour
 {
     private CharacterController controller;
-    public Text addValueText;
+
     private float speed = 10.0f;
     private float horizontalSpeed = 2.5f;
     private float speedMultiplier = 5.0f;
@@ -104,7 +104,7 @@ public class RohitMovePlayer : MonoBehaviour
                 || hit.gameObject.name == "Obstacle_Cylinder(Clone)")
             {
                 // Sphere hit
-                GetComponent<RohitPlayerState>().CyclePowerUp();
+                // GetComponent<RohitPlayerState>().CyclePowerUp();
                 
                 if(hit.gameObject != lastGameObjectHit)
                 {
