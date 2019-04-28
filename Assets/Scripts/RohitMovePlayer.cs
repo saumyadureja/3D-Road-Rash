@@ -10,7 +10,7 @@ public class RohitMovePlayer : MonoBehaviour
 {
     private CharacterController controller;
 
-    private float speed = 10.0f;
+    private float speed = 20.0f;
     private float horizontalSpeed = 2.5f;
     private float speedMultiplier = 5.0f;
     private Vector3 moveVector;
@@ -135,7 +135,9 @@ public class RohitMovePlayer : MonoBehaviour
                 int currentSum = GetComponent<RohitScoresCalculations>().getCurrentSum();
                 int nextTarget = GetComponent<RohitScoresCalculations>().getNextTarget();
                 diff = Math.Abs(currentSum - nextTarget);
+                GetComponent<RohitScoresCalculations>().displayTargetAchieved(diff);
                 GetComponent<RohitHealthCalculation>().ReduceHealth(diff*5.0f);
+                GetComponent<RohitScoresCalculations>().IncrementTargetIndex();
                 Destroy(hit.gameObject);
             }
             //else if (hit.gameObject.name == "Obstacle_Cube(Clone)")

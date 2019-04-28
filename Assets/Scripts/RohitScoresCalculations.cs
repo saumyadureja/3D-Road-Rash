@@ -81,27 +81,7 @@ public class RohitScoresCalculations : MonoBehaviour
         this.currentSum += Convert.ToInt32(textureName);
 
 
-        if (currentTargetIndex < targetList.Length && (this.currentSum == targetList[currentTargetIndex] || this.currentSum % targetList[currentTargetIndex] == 0))
-        {
-            currentTargetIndex++;
-            if (currentTargetIndex >= targetList.Length)
-            {
-                // Game Finished
-                Debug.Log("Game finished");
-                // Remove this line afterwards
-                isDead = true;
-            }
-
-            // Target achieved level up the speed
-            GetComponent<RohitPlayerState>().CyclePowerUp();
-
-            targetAchievedText.enabled = true;
-            Invoke("DisableText", 0.5f);
-
-            Debug.Log("Target Achieved!!!" + this.currentSum);
-            this.currentSum = 0;
-        }
-        else if (this.currentSum > targetList[currentTargetIndex])
+        if (this.currentSum > targetList[currentTargetIndex])
         {
             // Penalize the player, it has exceeded the target
             this.currentSum -= targetList[currentTargetIndex];
@@ -147,5 +127,36 @@ public class RohitScoresCalculations : MonoBehaviour
             return this.targetList[currentTargetIndex];
         }
         return 100;
+    }
+
+
+    public void displayTargetAchieved(float diff)
+    {
+        
+
+        if (diff == 0.0f)
+        {
+            targetAchievedText.text = "Target Achieved !!";
+            targetAchievedText.enabled = true;
+            Invoke("DisableText", 0.5f);
+
+            Debug.Log("Target Achieved!!!" + this.currentSum);
+            // Target achieved level up the speed
+            GetComponent<RohitPlayerState>().CyclePowerUp();
+        }
+        else
+        {
+            targetAchievedText.text = "Target missed by " + diff;
+            targetAchievedText.enabled = true;
+            Invoke("DisableText", 0.5f);
+
+            Debug.Log("Target Achieved!!!" + this.currentSum);
+        }
+        this.currentSum = 0;
+    }
+
+    public void IncrementTargetIndex()
+    {
+        this.currentTargetIndex++;
     }
 }
