@@ -126,15 +126,15 @@ public class RohitMovePlayer : MonoBehaviour
                 
 
             }
-            else if(hit.gameObject.name.StartsWith("wall", true, ci))
+            else if(hit.gameObject.name.StartsWith("Wall", true, ci))
             {
                 // Wall is hit
-                Debug.Log("Wall hit with value: " + hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
+                // Debug.Log("Wall hit with value: " + hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
 
                 float diff = 0.0f;
                 int currentSum = GetComponent<RohitScoresCalculations>().getCurrentSum();
-                int wallNumber = int.Parse(hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
-                diff = Math.Abs(currentSum - wallNumber);
+                int nextTarget = GetComponent<RohitScoresCalculations>().getNextTarget();
+                diff = Math.Abs(currentSum - nextTarget);
                 GetComponent<RohitHealthCalculation>().ReduceHealth(diff*5.0f);
                 Destroy(hit.gameObject);
             }

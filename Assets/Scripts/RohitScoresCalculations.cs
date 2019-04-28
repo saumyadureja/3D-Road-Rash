@@ -139,4 +139,13 @@ public class RohitScoresCalculations : MonoBehaviour
     {
         targetAchievedText.enabled = false;
     }
+
+    public int getNextTarget()
+    {
+        if(currentTargetIndex < targetList.Length)
+        {
+            return this.targetList[currentTargetIndex];
+        }
+        return 100;
+    }
 }
