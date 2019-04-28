@@ -21,11 +21,13 @@ public class RohitMovePlayer : MonoBehaviour
     private CultureInfo ci= new CultureInfo("en-US");
     private Vector3 moveDirection = Vector3.zero;
     public float jumpSpeed = 8.0f;
+    private GameObject lastGameObjectHit;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        lastGameObjectHit = new GameObject();
     }
 
     // Update is called once per frame
@@ -104,7 +106,11 @@ public class RohitMovePlayer : MonoBehaviour
                 // Sphere hit
                 GetComponent<RohitPlayerState>().CyclePowerUp();
                 
-                String textureName = GetComponent<RohitScoresCalculations>().AddSum(hit.gameObject);
+                if(hit.gameObject != lastGameObjectHit)
+                {
+                    String textureName = GetComponent<RohitScoresCalculations>().AddSum(hit.gameObject);
+                }
+                
                 //addValueText.text = textureName;
                 //addValueText.transform.position = this.transform.position;
                 LeanTween.move(hit.gameObject, new Vector3(-10,20,this.transform.position.z + 10), 0.5f);
@@ -114,11 +120,10 @@ public class RohitMovePlayer : MonoBehaviour
                 Color color = hit.gameObject.GetComponent<MeshRenderer>().material.color;
                 color.a = 0.5f;
                 hit.gameObject.GetComponent<MeshRenderer>().material.color = color;
-
+                
                 //Debug.Log("in health reduction if");
                 //Destroy(hit.gameObject);
-                isSphere = true;
-                isCube = false;
+                
 
             }
             else if(hit.gameObject.name.StartsWith("wall", true, ci))
@@ -157,6 +162,7 @@ public class RohitMovePlayer : MonoBehaviour
             {
                 // Death();
             }
+            lastGameObjectHit = hit.gameObject;
         }
 
     }

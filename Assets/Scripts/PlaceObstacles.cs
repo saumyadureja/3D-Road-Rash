@@ -105,7 +105,7 @@ public class PlaceObstacles : MonoBehaviour
                 Texture wallNumText = Resources.Load("Numbers/" + numberValue) as Texture;
                 wallRend.material.mainTexture = wallNumText;
 
-                    targetList.AddLast(numberValue);
+                targetList.AddLast(numberValue);
                 break;
 
             default: Debug.LogWarning("Unrecognized obstacle type '" + type + "' in CSV.");

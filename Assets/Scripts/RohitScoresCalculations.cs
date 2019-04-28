@@ -39,6 +39,7 @@ public class RohitScoresCalculations : MonoBehaviour
         {
             targetText.text = "Target: " + targetList[currentTargetIndex];
         }
+
         
 
         if (isDead)
