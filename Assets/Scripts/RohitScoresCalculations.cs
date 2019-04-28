@@ -9,6 +9,7 @@ public class RohitScoresCalculations : MonoBehaviour
     //private float score = 0.0f;
     public Text scoreText;
     public Text targetText;
+    public Text targetAchievedText;
 
     private int currentSum = 0;
     private int difficultLevel = 0;
@@ -26,7 +27,8 @@ public class RohitScoresCalculations : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        targetAchievedText.text = " Target Achieved!!";
+        targetAchievedText.enabled = false;
         startPosition = GetComponent<RohitMovePlayer>().transform.position.z;
         scoreText.text = "0";
         targetText.text = "Target: ";
@@ -90,6 +92,12 @@ public class RohitScoresCalculations : MonoBehaviour
                 isDead = true;
             }
 
+            // Target achieved level up the speed
+            GetComponent<RohitPlayerState>().CyclePowerUp();
+
+            targetAchievedText.enabled = true;
+            Invoke("DisableText", 0.5f);
+
             Debug.Log("Target Achieved!!!" + this.currentSum);
             this.currentSum = 0;
         }
@@ -125,5 +133,10 @@ public class RohitScoresCalculations : MonoBehaviour
         }
         
         Debug.Log("Got the size: " + targetList.Length);        
+    }
+
+    void DisableText()
+    {
+        targetAchievedText.enabled = false;
     }
 }
