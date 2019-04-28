@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     public void PlayLevel()
     {
-        SceneManager.LoadScene("Level 1");
+        string name = EventSystem.current.currentSelectedGameObject.name;
+        SceneManager.LoadScene(name);
     }
 
     public void QuitGame()

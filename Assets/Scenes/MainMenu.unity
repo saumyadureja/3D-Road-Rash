@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.47234368, g: 0.80141455, b: 0.8965815, a: 1}
+  m_IndirectSpecularColor: {r: 0.47233903, g: 0.80141634, b: 0.896578, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 188151507}
   - component: {fileID: 188151506}
   m_Layer: 5
-  m_Name: Level3Button
+  m_Name: Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 487857353}
   - component: {fileID: 487857352}
   m_Layer: 5
-  m_Name: Level1Button
+  m_Name: Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3621,7 +3621,7 @@ GameObject:
   - component: {fileID: 1128505531}
   - component: {fileID: 1128505530}
   m_Layer: 5
-  m_Name: Level2Button
+  m_Name: Level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
