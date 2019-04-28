@@ -36,7 +36,7 @@ public class RohitMovePlayer : MonoBehaviour
         if (isDead)
         {
             Debug.Log("MovePlayer: Is Dead");
-            return;
+            SceneManager.LoadScene("GameOver");
         }
         if (Time.time < animationDuration)
         {
