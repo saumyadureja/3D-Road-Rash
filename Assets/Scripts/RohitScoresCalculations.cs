@@ -30,8 +30,8 @@ public class RohitScoresCalculations : MonoBehaviour
         targetAchievedText.text = " Target Achieved!!";
         targetAchievedText.enabled = false;
         startPosition = GetComponent<RohitMovePlayer>().transform.position.z;
-        scoreText.text = "0";
-        targetText.text = "Target: ";
+        scoreText.text = "Current: 0";
+        targetText.text = "Target: 0";
     }
 
     // Update is called once per frame
@@ -90,7 +90,7 @@ public class RohitScoresCalculations : MonoBehaviour
         {
             // Do nothing as of now
         }
-        scoreText.text = "" + this.currentSum;
+        scoreText.text = "Current: " + this.currentSum;
 
         // Debug.Log("Current Index: " + currentTargetIndex + " Value: " + targetList[currentTargetIndex]);
         return textureName;
@@ -153,7 +153,7 @@ public class RohitScoresCalculations : MonoBehaviour
             Debug.Log("Target Achieved!!!" + this.currentSum);
         }
         this.currentSum = 0;
-        scoreText.text = "" + this.currentSum;
+        scoreText.text = "Current: " + this.currentSum;
     }
 
     public void IncrementTargetIndex()
