@@ -7,7 +7,16 @@ Tile_Main
 Tile_Main
 Tile_Main
 Tile_Main
-Tile_Main_Cutout
+Tile_Main
+Tile_Main
+Tile_Main
+Tile_Main
+Tile_Main
+Tile_Main
+Tile_Main
+Tile_Main
+Tile_Main
+Tile_Main
 Tile_Main
 Tile_Main
 Tile_Main
@@ -15,9 +24,6 @@ Tile_Main
 Tile_Main
 Tile_Main
 Tile_Ramp
-Tile_Main
-Tile_Main
-Tile_Main
 Tile_Main
 Tile_Main
 Tile_Main
