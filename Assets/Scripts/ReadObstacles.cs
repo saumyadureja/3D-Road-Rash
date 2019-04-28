@@ -24,6 +24,7 @@ public class ReadObstacles : MonoBehaviour
 
     void ReadCSVFile()
     {
+        Debug.Log("hello");
         TextAsset txt = (TextAsset)Resources.Load("Files/" + fileName, typeof(TextAsset));
         string filecontent = txt.text;
 
