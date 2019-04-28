@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Globalization;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class RohitMovePlayer : MonoBehaviour
@@ -22,10 +23,12 @@ public class RohitMovePlayer : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     public float jumpSpeed = 8.0f;
     private GameObject lastGameObjectHit;
+    private string lastScene;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.lastScene = SceneManager.GetActiveScene().name;
         controller = GetComponent<CharacterController>();
         lastGameObjectHit = new GameObject();
     }
@@ -171,6 +174,7 @@ public class RohitMovePlayer : MonoBehaviour
 
     private void Death()
     {
+        this.lastScene = SceneManager.GetActiveScene().name;
         isDead = true;
         GetComponent<RohitScoresCalculations>().OnDeathScoreStops();
         // Destroy(this);
@@ -219,5 +223,10 @@ public class RohitMovePlayer : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public string GetLastScene()
+    {
+        return this.lastScene;
     }
 }
