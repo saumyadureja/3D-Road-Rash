@@ -20,7 +20,7 @@ public class GameOver : MonoBehaviour
     public void Replay()
     {
         // lastScene = GameObject.Find("Player").GetComponent<RohitMovePlayer>().GetLastScene();
-        SceneManager.LoadScene(lastScene);
+        SceneManager.LoadScene("Level 2");
     }
 
     
