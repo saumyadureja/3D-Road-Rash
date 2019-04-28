@@ -39,6 +39,12 @@ public class ReadPositions : MonoBehaviour
                 add += 2*tileLength;
                 tileNewPrefab.transform.SetParent(this.transform);
             }
+            else if (data == "Tile_Main_Cutout")
+            {
+                GameObject tileNewPrefab = Instantiate(Resources.Load("Tile_Main_Cutout"), new Vector3(0, 0, add), Quaternion.identity) as GameObject;
+                add += 2 * tileLength;
+                tileNewPrefab.transform.SetParent(this.transform);
+            }
             else if(data == "Wall")
             {
                 GameObject wall = Instantiate(Resources.Load("Wall_Target"), new Vector3(-0.46f, 4, add), Quaternion.Euler(-90, 0, 0)) as GameObject;
