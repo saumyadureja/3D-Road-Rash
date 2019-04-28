@@ -81,7 +81,7 @@ public class RohitScoresCalculations : MonoBehaviour
         this.currentSum += Convert.ToInt32(textureName);
 
 
-        if (this.currentSum == targetList[currentTargetIndex] || this.currentSum % targetList[currentTargetIndex] == 0)
+        if (currentTargetIndex < targetList.Length && (this.currentSum == targetList[currentTargetIndex] || this.currentSum % targetList[currentTargetIndex] == 0))
         {
             currentTargetIndex++;
             if (currentTargetIndex >= targetList.Length)
@@ -112,7 +112,7 @@ public class RohitScoresCalculations : MonoBehaviour
         }
         scoreText.text = "" + this.currentSum;
 
-        Debug.Log("Current Index: " + currentTargetIndex + " Value: " + targetList[currentTargetIndex]);
+        // Debug.Log("Current Index: " + currentTargetIndex + " Value: " + targetList[currentTargetIndex]);
         return textureName;
     }
 

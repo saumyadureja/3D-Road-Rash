@@ -48,10 +48,10 @@ public class RohitRadiation : MonoBehaviour
             {
                 radiationLocation = playerTransform.position.z + 200.0f;
             }
-            radiationNegativeProgress.fillAmount = (distance*(-1) / 200.0f);
-            radiationPositiveProgress.fillAmount = 0.0f;
+            // radiationNegativeProgress.fillAmount = (distance*(-1) / 200.0f);
+            // radiationPositiveProgress.fillAmount = 0.0f;
 
-            GetComponent<RohitHealthCalculation>().ReduceHealth(radiationNegativeProgress.fillAmount * 0.05f);
+            // GetComponent<RohitHealthCalculation>().ReduceHealth(radiationNegativeProgress.fillAmount * 0.05f);
         }
         else
         {
@@ -60,8 +60,8 @@ public class RohitRadiation : MonoBehaviour
                 radiationLocation = playerTransform.position.z - 200.0f;
             }
             // positive
-            radiationPositiveProgress.fillAmount = (distance / 200.0f);
-            radiationNegativeProgress.fillAmount = 0.0f;
+            // radiationPositiveProgress.fillAmount = (distance / 200.0f);
+            // radiationNegativeProgress.fillAmount = 0.0f;
             
         }
 
