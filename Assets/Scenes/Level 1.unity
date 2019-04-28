@@ -421,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57.1, y: 4.274625e-11}
+  m_AnchoredPosition: {x: -0.0000009536743, y: -180}
   m_SizeDelta: {x: 57.66, y: 20.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &195548625
@@ -898,8 +898,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.4, y: 0.68}
-  m_SizeDelta: {x: 159.51, y: 384.56}
+  m_AnchoredPosition: {x: 27.535, y: 0.4}
+  m_SizeDelta: {x: 103.738, y: 601.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &600284006
 GameObject:
@@ -1473,7 +1473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000019073, y: -12.4}
+  m_AnchoredPosition: {x: 0, y: -12.4}
   m_SizeDelta: {x: 93.33, y: 88.23}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1145103595
@@ -1600,7 +1600,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.9, y: -12}
+  m_AnchoredPosition: {x: -0, y: 71}
   m_SizeDelta: {x: 100.72, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174320210
@@ -1825,7 +1825,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c766b069db9180f429bec1e4fc525a64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1ca33271cdd36a45ba46ae54376ff3e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2240,7 +2240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.650009, y: -11.999735}
+  m_AnchoredPosition: {x: 0, y: 71.00037}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018763055
