@@ -132,8 +132,8 @@ public class RohitScoresCalculations : MonoBehaviour
 
     public void displayTargetAchieved(float diff)
     {
-        
 
+        
         if (diff == 0.0f)
         {
             targetAchievedText.text = "Target Achieved !!";
@@ -153,6 +153,7 @@ public class RohitScoresCalculations : MonoBehaviour
             Debug.Log("Target Achieved!!!" + this.currentSum);
         }
         this.currentSum = 0;
+        scoreText.text = "" + this.currentSum;
     }
 
     public void IncrementTargetIndex()
