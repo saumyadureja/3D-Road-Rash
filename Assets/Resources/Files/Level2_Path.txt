@@ -25,7 +25,7 @@ Tile_Main
 Tile_Main
 Tile_Main
 Tile_Main
-Tile_Triangle
+Tile_Main_Cutout
 Tile_Main
 Tile_Main
 Tile_Main
@@ -40,7 +40,7 @@ Tile_Main
 Tile_Main
 Tile_Main
 Tile_Main
-Tile_Triangle
+Tile_Main_Cutout
 Tile_Main
 Tile_Main
 Tile_Main
@@ -67,7 +67,7 @@ Tile_Main
 Tile_Main
 Tile_Main
 Tile_Main
-Tile_Main
+Tile_Main_Cutout
 Tile_Main
 Tile_Main
 Tile_Main
