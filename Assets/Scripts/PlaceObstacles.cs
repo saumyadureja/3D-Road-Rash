@@ -8,13 +8,18 @@ public class PlaceObstacles : MonoBehaviour
     // public LinkedList<GameObject> walls;
     public string fileName;
     private System.Random rnd;
+    LinkedList<int> targetList; 
 
     // Start is called before the first frame update
     void Start()
     {
         // walls = new LinkedList<GameObject>();
+        targetList = new LinkedList<int>();
         rnd = new System.Random();
         ReadCSVFile();
+       
+        Debug.Log("Got the size in place obstacles: " + targetList.Count);
+        GameObject.Find("Player").GetComponent<RohitScoresCalculations>().setTargetList(targetList);
     }
 
     void ReadCSVFile()
@@ -100,6 +105,7 @@ public class PlaceObstacles : MonoBehaviour
                 Texture wallNumText = Resources.Load("Numbers/" + numberValue) as Texture;
                 wallRend.material.mainTexture = wallNumText;
 
+                    targetList.AddLast(numberValue);
                 break;
 
             default: Debug.LogWarning("Unrecognized obstacle type '" + type + "' in CSV.");
