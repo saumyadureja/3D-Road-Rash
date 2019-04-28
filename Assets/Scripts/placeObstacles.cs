@@ -5,16 +5,21 @@ using System.IO;
 
 public class PlaceObstacles : MonoBehaviour
 {
-    public LinkedList<GameObject> walls;
+    // public LinkedList<GameObject> walls;
     public string fileName;
     private System.Random rnd;
+    LinkedList<int> targetList; 
 
     // Start is called before the first frame update
     void Start()
     {
-        walls = new LinkedList<GameObject>();
+        // walls = new LinkedList<GameObject>();
+        targetList = new LinkedList<int>();
         rnd = new System.Random();
         ReadCSVFile();
+       
+        Debug.Log("Got the size in place obstacles: " + targetList.Count);
+        GameObject.Find("Player").GetComponent<RohitScoresCalculations>().setTargetList(targetList);
     }
 
     void ReadCSVFile()
@@ -28,7 +33,7 @@ public class PlaceObstacles : MonoBehaviour
         for (int i = 0; i < positionArray.Length; i++)
         {
             string data = positionArray[i].Trim();
-            Debug.Log(i + ":" + data);
+            // Debug.Log(i + ":" + data);
            
             if(data == null || data.Length == 0)
             {
@@ -87,14 +92,20 @@ public class PlaceObstacles : MonoBehaviour
             case "wall_sphere":
             case "wall_both":
                 rotation = Quaternion.Euler(-90,0,0);
+                numberValue = int.Parse(data_values[4]);
                 position = new Vector3(
                     int.Parse(data_values[1]),
                     int.Parse(data_values[2]),
                     int.Parse(data_values[3]));
                 GameObject wall = Instantiate(Resources.Load(type), position, rotation) as GameObject;
                 wall.transform.SetParent(this.transform);
-                walls.AddLast(wall);
+                // walls.AddLast(wall);
 
+                Renderer wallRend = wall.GetComponent<Renderer>();
+                Texture wallNumText = Resources.Load("Numbers/" + numberValue) as Texture;
+                wallRend.material.mainTexture = wallNumText;
+
+                    targetList.AddLast(numberValue);
                 break;
 
             default: Debug.LogWarning("Unrecognized obstacle type '" + type + "' in CSV.");
@@ -102,21 +113,21 @@ public class PlaceObstacles : MonoBehaviour
                 break;
             }            
         }
-        Debug.Log("Walls size: " + walls.Count);
-        RemoveWall(5.0f);
+        // Debug.Log("Walls size: " + walls.Count);
+        // RemoveWall(5.0f);
     }
 
-    public void RemoveWall(float zPosition)
-    {
-        //Debug.Log("Wall count: " + walls.Count);
-        if (walls.Count > 0)
-        {
-            GameObject firstWall = walls.First.Value;
-            if (firstWall.transform.position.z < zPosition)
-            {
-                walls.RemoveFirst();
-                Destroy(firstWall);
-            }
-        }
-    }
+    //public void RemoveWall(float zPosition)
+    //{
+    //    //Debug.Log("Wall count: " + walls.Count);
+    //    if (walls.Count > 0)
+    //    {
+    //        GameObject firstWall = walls.First.Value;
+    //        if (firstWall.transform.position.z < zPosition)
+    //        {
+    //            walls.RemoveFirst();
+    //            Destroy(firstWall);
+    //        }
+    //    }
+    //}
 }

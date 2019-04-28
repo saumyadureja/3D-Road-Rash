@@ -84,7 +84,7 @@ public class RohitMovePlayer : MonoBehaviour
         }
 
         // Calling the wall remover function
-        GameObject.Find("ObstacleManager").GetComponent<PlaceObstacles>().RemoveWall(transform.position.z);
+        // GameObject.Find("ObstacleManager").GetComponent<PlaceObstacles>().RemoveWall(transform.position.z);
 
     }
 
@@ -95,7 +95,7 @@ public class RohitMovePlayer : MonoBehaviour
     {
         if ((!hit.gameObject.name.StartsWith("Tile", true, ci)) && HitCheckAllDirections(hit))
         {
-            //Debug.Log("Collided with: " + hit.gameObject.name);
+            Debug.Log("Collided with: " + hit.gameObject.name);
 
             if (hit.gameObject.name == "Obstacle_Sphere(Clone)" 
                 || hit.gameObject.name == "Obstacle_Cube(Clone)" 
@@ -114,6 +114,48 @@ public class RohitMovePlayer : MonoBehaviour
                 Color color = hit.gameObject.GetComponent<MeshRenderer>().material.color;
                 color.a = 0.5f;
                 hit.gameObject.GetComponent<MeshRenderer>().material.color = color;
+
+                //Debug.Log("in health reduction if");
+                //Destroy(hit.gameObject);
+                isSphere = true;
+                isCube = false;
+
+            }
+            else if(hit.gameObject.name.StartsWith("wall", true, ci))
+            {
+                // Wall is hit
+                Debug.Log("Wall hit with value: " + hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
+
+                float diff = 0.0f;
+                int currentSum = GetComponent<RohitScoresCalculations>().getCurrentSum();
+                int wallNumber = int.Parse(hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
+                diff = Math.Abs(currentSum - wallNumber);
+                GetComponent<RohitHealthCalculation>().ReduceHealth(diff*5.0f);
+                Destroy(hit.gameObject);
+            }
+            //else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
+            //{
+            //    // Cube hit
+            //    GetComponent<RohitPlayerState>().SkatePowerUp();
+            //    Destroy(hit.gameObject);
+            //}
+            //else if (hit.gameObject.name == "Obstacle_Cylinder(Clone)")
+            //{
+            //    // reduce the  health
+            //    Destroy(hit.gameObject);
+            //    GetComponent<RohitHealthCalculation>().ReduceHealth(30.0f);
+
+            //}
+            //else if (hit.gameObject.name.StartsWith("Obstacle_Health", true, ci))
+            //{
+            //    // reduce the  health
+            //    Destroy(hit.gameObject);
+            //    GetComponent<RohitHealthCalculation>().IncreaseHealth(40.0f);
+
+            //}
+            else
+            {
+                // Death();
             }
         }
 
