@@ -437,7 +437,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 536742905}
         m_MethodName: onJump
         m_Mode: 1
         m_Arguments:
@@ -2299,7 +2299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45756028088aaff47a8d5c7c6badfb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: Level3_Obstacles
 --- !u!4 &1971484997
 Transform:
   m_ObjectHideFlags: 0
