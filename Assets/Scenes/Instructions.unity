@@ -2199,7 +2199,6 @@ GameObject:
   - component: {fileID: 2057847868}
   - component: {fileID: 2057847867}
   - component: {fileID: 2057847866}
-  - component: {fileID: 2057847865}
   - component: {fileID: 2057847864}
   - component: {fileID: 2057847863}
   - component: {fileID: 2057847862}
@@ -2265,18 +2264,6 @@ MonoBehaviour:
   radiationPositiveProgress: {fileID: 909970981}
   radiationNegativeProgress: {fileID: 1411842144}
   healthDamage: {fileID: 1251371078}
---- !u!114 &2057847865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057847860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9679698bbf483447a8e9b458382a218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2057847866
 MonoBehaviour:
   m_ObjectHideFlags: 0
