@@ -11,7 +11,7 @@ public class RohitMovePlayer : MonoBehaviour
 {
     private CharacterController controller;
 
-    private float speed = 15.0f;
+    private float speed = 12.0f;
     private float horizontalSpeed = 2.5f;
     private float speedMultiplier = 5.0f;
     private Vector3 moveVector;
@@ -129,7 +129,7 @@ public class RohitMovePlayer : MonoBehaviour
                 
 
             }
-            else if(hit.gameObject.name.StartsWith("Wall", true, ci))
+            else if(hit.gameObject.name.StartsWith("Wall", true, ci) && hit.gameObject != lastGameObjectHit)
             {
                 // Wall is hit
                 // Debug.Log("Wall hit with value: " + hit.gameObject.GetComponent<Renderer>().material.mainTexture.name);
@@ -141,7 +141,8 @@ public class RohitMovePlayer : MonoBehaviour
                 GetComponent<RohitScoresCalculations>().displayTargetAchieved(diff);
                 GetComponent<RohitHealthCalculation>().ReduceHealth(diff*5.0f);
                 GetComponent<RohitScoresCalculations>().IncrementTargetIndex();
-                Destroy(hit.gameObject);
+                hit.gameObject.SetActive(false);
+                //Destroy(hit.gameObject);
             }
             //else if (hit.gameObject.name == "Obstacle_Cube(Clone)")
             //{

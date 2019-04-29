@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RohitScoresCalculations : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class RohitScoresCalculations : MonoBehaviour
         startPosition = GetComponent<RohitMovePlayer>().transform.position.z;
         scoreText.text = "Current: 0";
         targetText.text = "Target: 0";
+
+        Invoke("InitialTargetText", 2.0f);
     }
 
     // Update is called once per frame
@@ -40,21 +43,12 @@ public class RohitScoresCalculations : MonoBehaviour
         if(targetList != null && currentTargetIndex < targetList.Length)
         {
             targetText.text = "Target: " + targetList[currentTargetIndex];
-        }
-
-        
+        }  
 
         if (isDead)
         {
             return;
         }
-        //    if (score >= scoreToNextLevel)
-        //    {
-        //        //LevelUp();
-        //    }
-        //    currentPosition = GetComponent<RohitMovePlayer>().transform.position.z;
-        //    score = currentPosition - startPosition;
-        //    scoreText.text = "Score: " + ((int)score).ToString();
     }
 
     private void LevelUp()
@@ -132,7 +126,10 @@ public class RohitScoresCalculations : MonoBehaviour
 
     public void displayTargetAchieved(float diff)
     {
-
+        if(currentTargetIndex == targetList.Length - 1)
+        {
+            Invoke("PlayNextLevel", 2.0f);
+        }
         
         if (diff == 0.0f)
         {
@@ -159,5 +156,17 @@ public class RohitScoresCalculations : MonoBehaviour
     public void IncrementTargetIndex()
     {
         this.currentTargetIndex++;
+    }
+
+    public void InitialTargetText()
+    {
+        targetAchievedText.text = "Target is: " + this.targetList[0];
+        targetAchievedText.enabled = true;
+        Invoke("DisableText", 1.0f);
+    }
+
+    public void PlayNextLevel()
+    {
+        SceneManager.LoadScene("NextLevel");
     }
 }
