@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Instructions.unity
     guid: 0cb7baa2c1cfbaa46992e9f9c082c581
+  - enabled: 1
+    path: Assets/Scenes/NextLevel.unity
+    guid: b3a0728405a7c624794ecb39757b3f62
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

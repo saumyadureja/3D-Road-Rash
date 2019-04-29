@@ -12,7 +12,7 @@ public class RohitPlayerState : MonoBehaviour
     private int cycleLevel;
     private int skateLevel;
 
-    private readonly float[] cycleSpeeds = {25.0f, 40.0f, 50.0f, 80.0f };
+    private readonly float[] cycleSpeeds = {15.0f, 20.0f, 25.0f, 30.0f };
     private readonly float[] skateSpeeds = { 10.0f, 20.0f, 30.0f, 30.0f };
     // Start is called before the first frame update
     void Start()

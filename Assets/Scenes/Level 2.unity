@@ -930,7 +930,6 @@ GameObject:
   - component: {fileID: 536742903}
   - component: {fileID: 536742902}
   - component: {fileID: 536742901}
-  - component: {fileID: 536742900}
   - component: {fileID: 536742899}
   - component: {fileID: 536742905}
   - component: {fileID: 536742908}
@@ -957,18 +956,6 @@ MonoBehaviour:
   radiationPositiveProgress: {fileID: 309714308}
   radiationNegativeProgress: {fileID: 1484633280}
   healthDamage: {fileID: 85802558}
---- !u!114 &536742900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536742898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9679698bbf483447a8e9b458382a218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &536742901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,7 +2017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45756028088aaff47a8d5c7c6badfb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: Level2_Obstacles
 --- !u!4 &1971484997
 Transform:
   m_ObjectHideFlags: 0
@@ -2325,8 +2311,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 536742905}
+        m_MethodName: onJump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

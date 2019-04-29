@@ -1900,7 +1900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45756028088aaff47a8d5c7c6badfb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: Level1_Obstacles
 --- !u!1 &1509307543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +1994,6 @@ GameObject:
   - component: {fileID: 1602766501}
   - component: {fileID: 1602766500}
   - component: {fileID: 1602766499}
-  - component: {fileID: 1602766498}
   - component: {fileID: 1602766497}
   - component: {fileID: 1602766504}
   - component: {fileID: 1602766505}
@@ -2051,18 +2049,6 @@ MonoBehaviour:
   radiationPositiveProgress: {fileID: 1789159911}
   radiationNegativeProgress: {fileID: 650041335}
   healthDamage: {fileID: 1302583463}
---- !u!114 &1602766498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602766494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9679698bbf483447a8e9b458382a218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1602766499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2251,7 +2237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1942718234
 RectTransform:
   m_ObjectHideFlags: 0
