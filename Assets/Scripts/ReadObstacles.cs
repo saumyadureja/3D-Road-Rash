@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class ReadObstacles : MonoBehaviour
 {
     // public LinkedList<GameObject> walls;
-    public string fileName;
+    // public string fileName;
     private System.Random rnd;
     LinkedList<int> targetList; 
 
@@ -25,6 +26,10 @@ public class ReadObstacles : MonoBehaviour
     void ReadCSVFile()
     {
         Debug.Log("hello");
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        string fileName = sceneName.Trim() + "_Obstacles";
+
         TextAsset txt = (TextAsset)Resources.Load("Files/" + fileName, typeof(TextAsset));
         string filecontent = txt.text;
 
