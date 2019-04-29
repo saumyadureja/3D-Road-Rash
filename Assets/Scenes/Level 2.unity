@@ -1554,7 +1554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264651081}
   - component: {fileID: 1264651080}
-  - component: {fileID: 1264651079}
+  - component: {fileID: 1264651082}
   m_Layer: 0
   m_Name: PathGenerator
   m_TagString: Untagged
@@ -1562,18 +1562,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1264651079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264651078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53894913c58cac4b84a33fcb2ecfd5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1264651080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,6 +1589,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1264651082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264651078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1170a1cccdc9da488d62fd874e8d948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1320601936
 GameObject:
   m_ObjectHideFlags: 0
